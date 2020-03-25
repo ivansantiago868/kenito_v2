@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:kenito_v2/services/authentication.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:kenito_v2/models/todo.dart';
+import 'package:kenito_v2/pages/speech_page.dart';
+import 'package:flutter/scheduler.dart';
 import 'dart:async';
 
 class HomePage extends StatefulWidget {
@@ -182,25 +184,51 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
+  void redirect() {
+    print("redirect");
+    //print(widget.auth.isUserId());}
+    Navigator.push(
+        context, new MaterialPageRoute(builder: (context) => new SpeechPage()));
+  }
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-        appBar: new AppBar(
-          title: new Text('Flutter login demo'),
-          actions: <Widget>[
-            new FlatButton(
-                child: new Text('Logout',
-                    style: new TextStyle(fontSize: 17.0, color: Colors.white)),
-                onPressed: signOut)
-          ],
-        ),
-        body: showTodoList(),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            showAddTodoDialog(context);
-          },
-          tooltip: 'Increment',
-          child: Icon(Icons.add),
-        ));
+      appBar: new AppBar(
+        title: new Text('Home'),
+        actions: <Widget>[
+          new FlatButton(
+              child: new Text('Salir',
+                  style: new TextStyle(fontSize: 17.0, color: Colors.white)),
+              onPressed: signOut)
+        ],
+      ),
+      body: Center(child: showTodoList()),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          showAddTodoDialog(context);
+        },
+        tooltip: 'Increment',
+        child: Icon(Icons.add),
+      ),
+      // bottomNavigationBar: BottomAppBar(
+      //   child: Container(
+      //       height: 100.0,
+      //       child: Row(children: <Widget>[
+      //         Text("Root Booton->"),
+      //         Icon(Icons.home),
+      //         IconButton(
+      //           icon: Icon(Icons.add_box),
+      //           onPressed: () {
+      //             print("poton");
+      //           },
+      //         ),
+      //       ])),
+      //   color: Colors.orangeAccent,
+      // ),
+      persistentFooterButtons: <Widget>[
+        IconButton(icon: Icon(Icons.add_comment), onPressed: () => redirect())
+      ],
+    );
   }
 }

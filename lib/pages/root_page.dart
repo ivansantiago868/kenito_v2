@@ -2,12 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:kenito_v2/pages/login_signup_page.dart';
 import 'package:kenito_v2/services/authentication.dart';
 import 'package:kenito_v2/pages/home_page.dart';
+import 'package:kenito_v2/pages/speech_page.dart';
 
-enum AuthStatus {
-  NOT_DETERMINED,
-  NOT_LOGGED_IN,
-  LOGGED_IN,
-}
+enum AuthStatus { NOT_DETERMINED, NOT_LOGGED_IN, LOGGED_IN, SPEECH_IN }
 
 class RootPage extends StatefulWidget {
   RootPage({this.auth});
@@ -73,6 +70,13 @@ class _RootPageState extends State<RootPage> {
         return new LoginSignupPage(
           auth: widget.auth,
           loginCallback: loginCallback,
+        );
+        break;
+      case AuthStatus.SPEECH_IN:
+        return new SpeechPage(
+          userId: _userId,
+          auth: widget.auth,
+          logoutCallback: logoutCallback,
         );
         break;
       case AuthStatus.LOGGED_IN:
