@@ -48,7 +48,7 @@ class _SpeechPageState extends State<SpeechPage> {
 
   // Platform messages are asynchronous, so we initialize in an async method.
   void activateSpeechRecognizer() {
-    print('_MyAppState.activateSpeechRecognizer... ');
+    print('SpeechPage.activateSpeechRecognizer... ');
     _speech = new SpeechRecognition();
     _speech.setAvailabilityHandler(onSpeechAvailability);
     _speech.setCurrentLocaleHandler(onCurrentLocale);
@@ -138,7 +138,7 @@ class _SpeechPageState extends State<SpeechPage> {
 
   void start() => _speech
       .listen(locale: selectedLang.code)
-      .then((result) => print('_MyAppState.start => result $result'));
+      .then((result) => print('SpeechPage.start => result $result'));
 
   void cancel() =>
       _speech.cancel().then((result) => setState(() => _isListening = result));
@@ -151,7 +151,7 @@ class _SpeechPageState extends State<SpeechPage> {
       setState(() => _speechRecognitionAvailable = result);
 
   void onCurrentLocale(String locale) {
-    print('_MyAppState.onCurrentLocale... $locale');
+    print('SpeechPage.onCurrentLocale... $locale');
     setState(
         () => selectedLang = languages.firstWhere((l) => l.code == locale));
   }
