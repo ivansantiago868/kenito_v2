@@ -3,6 +3,7 @@ import 'package:kenito_v2/services/authentication.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:kenito_v2/models/todo.dart';
 import 'package:kenito_v2/pages/speech_page.dart';
+import 'package:kenito_v2/pages/permission_page.dart';
 import 'package:flutter/scheduler.dart';
 import 'dart:async';
 
@@ -177,18 +178,27 @@ class _HomePageState extends State<HomePage> {
     } else {
       return Center(
           child: Text(
-        "Welcome. Your list is empty",
+        "Bienvenido. Esta lista esta vacia",
         textAlign: TextAlign.center,
         style: TextStyle(fontSize: 30.0),
       ));
     }
   }
 
-  void redirect() {
-    print("redirect");
-    //print(widget.auth.isUserId());}
-    Navigator.push(
-        context, new MaterialPageRoute(builder: (context) => new SpeechPage()));
+  void redirect(type) {
+    print("redirect:");
+    switch (type) {
+      case 'SpeechPage':
+        print("SpeechPage");
+        Navigator.push(context,
+            new MaterialPageRoute(builder: (context) => new SpeechPage()));
+        break;
+      case 'Permisos':
+        print("Permisos");
+        Navigator.push(context,
+            new MaterialPageRoute(builder: (context) => new PermissionPage()));
+        break;
+    }
   }
 
   @override
@@ -227,7 +237,12 @@ class _HomePageState extends State<HomePage> {
       //   color: Colors.orangeAccent,
       // ),
       persistentFooterButtons: <Widget>[
-        IconButton(icon: Icon(Icons.add_comment), onPressed: () => redirect())
+        IconButton(
+            icon: Icon(Icons.add_comment),
+            onPressed: () => redirect('SpeechPage')),
+        IconButton(
+            icon: Icon(Icons.access_alarm),
+            onPressed: () => redirect('Permisos'))
       ],
     );
   }
