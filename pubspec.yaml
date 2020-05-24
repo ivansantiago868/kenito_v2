@@ -1,5 +1,5 @@
 name: kenito_v2
-description: A new Flutter project.
+description: A new Flutter project.|
 
 dependencies:
   flutter:
@@ -9,6 +9,7 @@ dependencies:
   firebase_database: ^3.0.7
   permission: ^0.1.7
   speech_recognition: ^0.3.0
+  flutter_tts : ^1.0.0
 
 dev_dependencies:
   flutter_test:

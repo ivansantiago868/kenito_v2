@@ -1,8 +1,11 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:kenito_v2/services/authentication.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:kenito_v2/models/todo.dart';
 import 'package:kenito_v2/pages/speech_page.dart';
+import 'package:kenito_v2/pages/text_speech_page.dart';
 import 'package:kenito_v2/pages/permission_page.dart';
 import 'package:flutter/scheduler.dart';
 import 'dart:async';
@@ -198,6 +201,15 @@ class _HomePageState extends State<HomePage> {
         Navigator.push(context,
             new MaterialPageRoute(builder: (context) => new PermissionPage()));
         break;
+      case 'TextPage':
+        print("TextPage");
+        Navigator.push(context,
+            new MaterialPageRoute(builder: (context) => new TextPage()));
+        break;
+      case 'bot':
+        print("Bot");
+        Navigator.push(context,
+          new MaterialPageRoute(builder: (context) => new TextPage()));
     }
   }
 
@@ -242,7 +254,11 @@ class _HomePageState extends State<HomePage> {
             onPressed: () => redirect('SpeechPage')),
         IconButton(
             icon: Icon(Icons.access_alarm),
-            onPressed: () => redirect('Permisos'))
+            onPressed: () => redirect('Permisos')),
+        IconButton(
+            icon: Icon(Icons.account_box),
+            onPressed: () => redirect('TextPage')),
+        IconButton(icon: Icon(Icons.book), onPressed: () => redirect('bot'))
       ],
     );
   }

@@ -7,10 +7,16 @@
             "type": "dart"
         },
         {
-            "name": "Android",
+            "name": "Android Fisico",
             "request": "launch",
             "type": "dart",
             "deviceId": "SM A107M"
+        },
+        {
+            "name": "Android virtual",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "Android SDK built for x86"
         }
     ],
     "compounds": [

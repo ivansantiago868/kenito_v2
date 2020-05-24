@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 import 'package:kenito_v2/services/authentication.dart';
 import 'package:speech_recognition/speech_recognition.dart';
 import 'package:permission/permission.dart';
@@ -32,6 +33,7 @@ class SpeechPage extends StatefulWidget {
 
 class _SpeechPageState extends State<SpeechPage> {
   SpeechRecognition _speech;
+  FlutterTts flutterTts = FlutterTts();
 
   bool _speechRecognitionAvailable = false;
   bool _isListening = false;
@@ -49,7 +51,7 @@ class _SpeechPageState extends State<SpeechPage> {
 
   // Platform messages are asynchronous, so we initialize in an async method.
   void activateSpeechRecognizer() {
-    print('SpeechPage.activateSpeechRecognizer... ');
+      print('SpeechPage.activateSpeechRecognizer... ');
     _speech = new SpeechRecognition();
     _speech.setAvailabilityHandler(onSpeechAvailability);
     _speech.setCurrentLocaleHandler(onCurrentLocale);
@@ -96,16 +98,20 @@ class _SpeechPageState extends State<SpeechPage> {
                         ? () => start()
                         : null,
                     label: _isListening
-                        ? 'Listening...'
-                        : 'Listen (${selectedLang.code})',
+                        ? 'Escuchando...'
+                        : 'Escuchar (${selectedLang.code})',
                   ),
                   _buildButton(
                     onPressed: _isListening ? () => cancel() : null,
                     label: 'Cancel',
                   ),
                   _buildButton(
+                    onPressed: _isListening ? () => null : txtTospeech,
+                    label: 'Voz',
+                  ),
+                  _buildButton(
                     onPressed: _isListening ? () => stop() : null,
-                    label: 'Stop',
+                    label: 'Parar',
                   ),
                 ],
               ),
@@ -140,7 +146,9 @@ class _SpeechPageState extends State<SpeechPage> {
   void start() => _speech
       .listen(locale: selectedLang.code)
       .then((result) => print('SpeechPage.start => result $result'));
-
+  void txtTospeech() => 
+    
+    print('SpeechPage.onCurrentLocale... $transcription');
   void cancel() =>
       _speech.cancel().then((result) => setState(() => _isListening = result));
 
@@ -152,8 +160,8 @@ class _SpeechPageState extends State<SpeechPage> {
       setState(() => _speechRecognitionAvailable = result);
 
   void onCurrentLocale(String locale) {
-    print('SpeechPage.onCurrentLocale... $locale');
-    setState(
+      print('SpeechPage.onCurrentLocale... $locale');
+      setState(
         () => selectedLang = languages.firstWhere((l) => l.code == locale));
   }
 
