@@ -1,10 +1,10 @@
-import 'dart:html';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:kenito_v2/services/authentication.dart';
-import 'package:firebase_database/firebase_database.dart';
-import 'package:kenito_v2/models/todo.dart';
 import 'package:kenito_v2/pages/speech_page.dart';
+import 'package:kenito_v2/pages/bot_page.dart';
+import 'package:kenito_v2/pages/bd_page.dart';
 import 'package:kenito_v2/pages/text_speech_page.dart';
 import 'package:kenito_v2/pages/permission_page.dart';
 import 'package:flutter/scheduler.dart';
@@ -23,57 +23,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<Todo> _todoList;
-
-  final FirebaseDatabase _database = FirebaseDatabase.instance;
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   final _textEditingController = TextEditingController();
-  StreamSubscription<Event> _onTodoAddedSubscription;
-  StreamSubscription<Event> _onTodoChangedSubscription;
-
-  Query _todoQuery;
-
-  //bool _isEmailVerified = false;
-
-  @override
-  void initState() {
-    super.initState();
-    //_checkEmailVerification();
-    _todoList = new List();
-    _todoQuery = _database
-        .reference()
-        .child("todo")
-        .orderByChild("userId")
-        .equalTo(widget.userId);
-    _onTodoAddedSubscription = _todoQuery.onChildAdded.listen(onEntryAdded);
-    _onTodoChangedSubscription =
-        _todoQuery.onChildChanged.listen(onEntryChanged);
-  }
-
-  @override
-  void dispose() {
-    _onTodoAddedSubscription.cancel();
-    _onTodoChangedSubscription.cancel();
-    super.dispose();
-  }
-
-  onEntryChanged(Event event) {
-    var oldEntry = _todoList.singleWhere((entry) {
-      return entry.key == event.snapshot.key;
-    });
-
-    setState(() {
-      _todoList[_todoList.indexOf(oldEntry)] =
-          Todo.fromSnapshot(event.snapshot);
-    });
-  }
-
-  onEntryAdded(Event event) {
-    setState(() {
-      _todoList.add(Todo.fromSnapshot(event.snapshot));
-    });
-  }
 
   signOut() async {
     try {
@@ -81,110 +33,6 @@ class _HomePageState extends State<HomePage> {
       widget.logoutCallback();
     } catch (e) {
       print(e);
-    }
-  }
-
-  addNewTodo(String todoItem) {
-    if (todoItem.length > 0) {
-      Todo todo = new Todo(todoItem.toString(), widget.userId, false);
-      _database.reference().child("todo").push().set(todo.toJson());
-    }
-  }
-
-  updateTodo(Todo todo) {
-    //Toggle completed
-    todo.completed = !todo.completed;
-    if (todo != null) {
-      _database.reference().child("todo").child(todo.key).set(todo.toJson());
-    }
-  }
-
-  deleteTodo(String todoId, int index) {
-    _database.reference().child("todo").child(todoId).remove().then((_) {
-      print("Delete $todoId successful");
-      setState(() {
-        _todoList.removeAt(index);
-      });
-    });
-  }
-
-  showAddTodoDialog(BuildContext context) async {
-    _textEditingController.clear();
-    await showDialog<String>(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            content: new Row(
-              children: <Widget>[
-                new Expanded(
-                    child: new TextField(
-                  controller: _textEditingController,
-                  autofocus: true,
-                  decoration: new InputDecoration(
-                    labelText: 'Add new todo',
-                  ),
-                ))
-              ],
-            ),
-            actions: <Widget>[
-              new FlatButton(
-                  child: const Text('Cancel'),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  }),
-              new FlatButton(
-                  child: const Text('Save'),
-                  onPressed: () {
-                    addNewTodo(_textEditingController.text.toString());
-                    Navigator.pop(context);
-                  })
-            ],
-          );
-        });
-  }
-
-  Widget showTodoList() {
-    if (_todoList.length > 0) {
-      return ListView.builder(
-          shrinkWrap: true,
-          itemCount: _todoList.length,
-          itemBuilder: (BuildContext context, int index) {
-            String todoId = _todoList[index].key;
-            String subject = _todoList[index].subject;
-            bool completed = _todoList[index].completed;
-            String userId = _todoList[index].userId;
-            return Dismissible(
-              key: Key(todoId),
-              background: Container(color: Colors.red),
-              onDismissed: (direction) async {
-                deleteTodo(todoId, index);
-              },
-              child: ListTile(
-                title: Text(
-                  subject,
-                  style: TextStyle(fontSize: 20.0),
-                ),
-                trailing: IconButton(
-                    icon: (completed)
-                        ? Icon(
-                            Icons.done_outline,
-                            color: Colors.green,
-                            size: 20.0,
-                          )
-                        : Icon(Icons.done, color: Colors.grey, size: 20.0),
-                    onPressed: () {
-                      updateTodo(_todoList[index]);
-                    }),
-              ),
-            );
-          });
-    } else {
-      return Center(
-          child: Text(
-        "Bienvenido. Esta lista esta vacia",
-        textAlign: TextAlign.center,
-        style: TextStyle(fontSize: 30.0),
-      ));
     }
   }
 
@@ -209,7 +57,13 @@ class _HomePageState extends State<HomePage> {
       case 'bot':
         print("Bot");
         Navigator.push(context,
-          new MaterialPageRoute(builder: (context) => new TextPage()));
+            new MaterialPageRoute(builder: (context) => new BotPage()));
+        break;
+      case 'bd':
+        print("BD");
+        Navigator.push(
+            context, new MaterialPageRoute(builder: (context) => new BdPage()));
+        break;
     }
   }
 
@@ -225,29 +79,8 @@ class _HomePageState extends State<HomePage> {
               onPressed: signOut)
         ],
       ),
-      body: Center(child: showTodoList()),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          showAddTodoDialog(context);
-        },
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ),
-      // bottomNavigationBar: BottomAppBar(
-      //   child: Container(
-      //       height: 100.0,
-      //       child: Row(children: <Widget>[
-      //         Text("Root Booton->"),
-      //         Icon(Icons.home),
-      //         IconButton(
-      //           icon: Icon(Icons.add_box),
-      //           onPressed: () {
-      //             print("poton");
-      //           },
-      //         ),
-      //       ])),
-      //   color: Colors.orangeAccent,
-      // ),
+      body: MyStatelessWidget(),
+      // Center(child: new Text('Bienvenio',style: new TextStyle(fontSize: 17.0, color: Colors.red)),),
       persistentFooterButtons: <Widget>[
         IconButton(
             icon: Icon(Icons.add_comment),
@@ -258,8 +91,48 @@ class _HomePageState extends State<HomePage> {
         IconButton(
             icon: Icon(Icons.account_box),
             onPressed: () => redirect('TextPage')),
-        IconButton(icon: Icon(Icons.book), onPressed: () => redirect('bot'))
+        IconButton(icon: Icon(Icons.book), onPressed: () => redirect('bot')),
+        IconButton(icon: Icon(Icons.autorenew), onPressed: () => redirect('bd'))
       ],
+    );
+  }
+}
+
+class MyStatelessWidget extends StatelessWidget {
+  MyStatelessWidget({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          // const RaisedButton(
+          //   onPressed: null,
+          //   child: Text('Disabled Button', style: TextStyle(fontSize: 20)),
+          // ),
+          const SizedBox(height: 30),
+          RaisedButton(
+            onPressed: () => Navigator.push(
+            context, new MaterialPageRoute(builder: (context) => new BdPage())),
+            textColor: Colors.white,
+            padding: const EdgeInsets.all(0.0),
+            child: Container(
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  colors: <Color>[
+                    Color(0xFF0D47A1),
+                    Color(0xFF1976D2),
+                    Color(0xFF42A5F5),
+                  ],
+                ),
+              ),
+              padding: const EdgeInsets.all(10.0),
+              child: const Text('Comencemos', style: TextStyle(fontSize: 20)),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
