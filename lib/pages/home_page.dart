@@ -2,13 +2,16 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:kenito_v2/services/authentication.dart';
+import 'package:kenito_v2/pages/index_page.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:kenito_v2/tools/utilitis.dart';
+import 'dart:async';
+
 import 'package:kenito_v2/pages/speech_page.dart';
 import 'package:kenito_v2/pages/bot_page.dart';
 import 'package:kenito_v2/pages/bd_page.dart';
 import 'package:kenito_v2/pages/text_speech_page.dart';
 import 'package:kenito_v2/pages/permission_page.dart';
-import 'package:flutter/scheduler.dart';
-import 'dart:async';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key, this.auth, this.userId, this.logoutCallback})
@@ -36,41 +39,11 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
-  void redirect(type) {
-    print("redirect:");
-    switch (type) {
-      case 'SpeechPage':
-        print("SpeechPage");
-        Navigator.push(context,
-            new MaterialPageRoute(builder: (context) => new SpeechPage()));
-        break;
-      case 'Permisos':
-        print("Permisos");
-        Navigator.push(context,
-            new MaterialPageRoute(builder: (context) => new PermissionPage()));
-        break;
-      case 'TextPage':
-        print("TextPage");
-        Navigator.push(context,
-            new MaterialPageRoute(builder: (context) => new TextPage()));
-        break;
-      case 'bot':
-        print("Bot");
-        Navigator.push(context,
-            new MaterialPageRoute(builder: (context) => new BotPage()));
-        break;
-      case 'bd':
-        print("BD");
-        Navigator.push(
-            context, new MaterialPageRoute(builder: (context) => new BdPage()));
-        break;
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
+        backgroundColor: Colors.indigo,
         title: new Text('Home'),
         actions: <Widget>[
           new FlatButton(
@@ -79,21 +52,8 @@ class _HomePageState extends State<HomePage> {
               onPressed: signOut)
         ],
       ),
+      drawer: MenuLateral(),
       body: MyStatelessWidget(),
-      // Center(child: new Text('Bienvenio',style: new TextStyle(fontSize: 17.0, color: Colors.red)),),
-      persistentFooterButtons: <Widget>[
-        IconButton(
-            icon: Icon(Icons.add_comment),
-            onPressed: () => redirect('SpeechPage')),
-        IconButton(
-            icon: Icon(Icons.access_alarm),
-            onPressed: () => redirect('Permisos')),
-        IconButton(
-            icon: Icon(Icons.account_box),
-            onPressed: () => redirect('TextPage')),
-        IconButton(icon: Icon(Icons.book), onPressed: () => redirect('bot')),
-        IconButton(icon: Icon(Icons.autorenew), onPressed: () => redirect('bd'))
-      ],
     );
   }
 }
@@ -107,14 +67,10 @@ class MyStatelessWidget extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          // const RaisedButton(
-          //   onPressed: null,
-          //   child: Text('Disabled Button', style: TextStyle(fontSize: 20)),
-          // ),
           const SizedBox(height: 30),
           RaisedButton(
-            onPressed: () => Navigator.push(
-            context, new MaterialPageRoute(builder: (context) => new BdPage())),
+            onPressed: () => Navigator.push(context,
+                new MaterialPageRoute(builder: (context) => new IndexPage())),
             textColor: Colors.white,
             padding: const EdgeInsets.all(0.0),
             child: Container(
@@ -128,7 +84,7 @@ class MyStatelessWidget extends StatelessWidget {
                 ),
               ),
               padding: const EdgeInsets.all(10.0),
-              child: const Text('Comencemos', style: TextStyle(fontSize: 20)),
+              child: const Text('Iniciar', style: TextStyle(fontSize: 20)),
             ),
           ),
         ],

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:kenito_v2/services/authentication.dart';
 import 'package:permission/permission.dart';
 import 'package:flutter_dialogflow/dialogflow_v2.dart';
+import 'package:kenito_v2/tools/utilitis.dart';
 
 enum TtsState { playing, stopped }
 
@@ -103,9 +104,11 @@ class _BotPageState extends State<BotPage> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
+        backgroundColor: Colors.indigo,
         centerTitle: true,
         title: new Text("Flutter and Dialogflow"),
       ),
+      drawer: MenuLateral(),
       body: new Column(children: <Widget>[
         new Flexible(
             child: new ListView.builder(

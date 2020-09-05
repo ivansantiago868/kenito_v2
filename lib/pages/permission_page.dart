@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:kenito_v2/services/authentication.dart';
 import 'package:permission/permission.dart';
+import 'package:kenito_v2/tools/utilitis.dart';
 
 class PermissionPage extends StatefulWidget {
   @override
@@ -35,8 +36,11 @@ class _PermissionPageState extends State<PermissionPage> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.indigo,
+          centerTitle: true,
           title: Text('Plugin example app'),
         ),
+        drawer: MenuLateral(),
         body: Center(
           child: Column(
             children: <Widget>[

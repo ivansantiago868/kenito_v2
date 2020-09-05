@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:kenito_v2/services/authentication.dart';
 import 'package:permission/permission.dart';
+import 'package:kenito_v2/tools/utilitis.dart';
 
 enum TtsState { playing, stopped }
 
@@ -122,8 +123,11 @@ class _TextPageState extends State<TextPage> {
     return MaterialApp(
         home: Scaffold(
             appBar: AppBar(
+              backgroundColor: Colors.indigo,
+              centerTitle: true,
               title: Text('TTS'),
             ),
+            drawer: MenuLateral(),
             body: SingleChildScrollView(
                 scrollDirection: Axis.vertical,
                 child: Column(children: [

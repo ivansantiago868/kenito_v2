@@ -18,7 +18,7 @@ dev_dependencies:
   flutter_launcher_icons: ^0.7.4
 
 flutter_icons:
-  image_path: "assets/flutter-icon.png"
+  image_path: "assets/35613265Untitled-3-512.png"
   android: true 
   ios: true
   
@@ -26,5 +26,8 @@ flutter:
   uses-material-design: true
   assets:
     - assets/flutter-icon.png
+    - assets/35613265Untitled-3-512.png
     - assets/piggy-bank.png
     - assets/credentials.json
+    - assets/banner_menu.jpg
+    - assets/pngocean.com.png

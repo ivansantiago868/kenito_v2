@@ -3,6 +3,7 @@ import 'package:flutter_tts/flutter_tts.dart';
 import 'package:kenito_v2/services/authentication.dart';
 import 'package:speech_recognition/speech_recognition.dart';
 import 'package:permission/permission.dart';
+import 'package:kenito_v2/tools/utilitis.dart';
 
 const languages = const [
   // const Language('Francais', 'fr_FR'),
@@ -51,7 +52,7 @@ class _SpeechPageState extends State<SpeechPage> {
 
   // Platform messages are asynchronous, so we initialize in an async method.
   void activateSpeechRecognizer() {
-      print('SpeechPage.activateSpeechRecognizer... ');
+    print('SpeechPage.activateSpeechRecognizer... ');
     _speech = new SpeechRecognition();
     _speech.setAvailabilityHandler(onSpeechAvailability);
     _speech.setCurrentLocaleHandler(onCurrentLocale);
@@ -69,18 +70,17 @@ class _SpeechPageState extends State<SpeechPage> {
     return new MaterialApp(
       home: new Scaffold(
         appBar: new AppBar(
+          backgroundColor: Colors.indigo,
+          centerTitle: true,
           title: new Text('SpeechRecognition'),
           actions: [
             new PopupMenuButton<Language>(
               onSelected: _selectLangHandler,
               itemBuilder: (BuildContext context) => _buildLanguagesWidgets,
             ),
-            new FlatButton(
-                child: new Text('Salir',
-                    style: new TextStyle(fontSize: 17.0, color: Colors.white)),
-                onPressed: signOut)
           ],
         ),
+        drawer: MenuLateral(),
         body: new Padding(
             padding: new EdgeInsets.all(8.0),
             child: new Center(
@@ -146,9 +146,7 @@ class _SpeechPageState extends State<SpeechPage> {
   void start() => _speech
       .listen(locale: selectedLang.code)
       .then((result) => print('SpeechPage.start => result $result'));
-  void txtTospeech() => 
-    
-    print('SpeechPage.onCurrentLocale... $transcription');
+  void txtTospeech() => print('SpeechPage.onCurrentLocale... $transcription');
   void cancel() =>
       _speech.cancel().then((result) => setState(() => _isListening = result));
 
@@ -160,8 +158,8 @@ class _SpeechPageState extends State<SpeechPage> {
       setState(() => _speechRecognitionAvailable = result);
 
   void onCurrentLocale(String locale) {
-      print('SpeechPage.onCurrentLocale... $locale');
-      setState(
+    print('SpeechPage.onCurrentLocale... $locale');
+    setState(
         () => selectedLang = languages.firstWhere((l) => l.code == locale));
   }
 
@@ -172,13 +170,4 @@ class _SpeechPageState extends State<SpeechPage> {
   void onRecognitionComplete() => setState(() => _isListening = false);
 
   void errorHandler() => activateSpeechRecognizer();
-
-  signOut() async {
-    try {
-      await widget.auth.signOut();
-      widget.logoutCallback();
-    } catch (e) {
-      print(e);
-    }
-  }
 }

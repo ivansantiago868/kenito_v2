@@ -10,7 +10,7 @@
             "name": "Android Fisico",
             "request": "launch",
             "type": "dart",
-            "deviceId": "SM A107M"
+            "deviceId": "CAM L23"
         },
         {
             "name": "Android virtual",

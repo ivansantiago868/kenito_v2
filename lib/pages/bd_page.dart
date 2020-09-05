@@ -5,6 +5,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:kenito_v2/models/todo.dart';
 import 'package:flutter/scheduler.dart';
 import 'dart:async';
+import 'package:kenito_v2/tools/utilitis.dart';
 
 class BdPage extends StatefulWidget {
   BdPage({Key key, this.auth, this.userId, this.logoutCallback})
@@ -188,8 +189,11 @@ class _BdPageState extends State<BdPage> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
+        backgroundColor: Colors.indigo,
+        centerTitle: true,
         title: new Text('Home'),
       ),
+      drawer: MenuLateral(),
       body: Center(child: showTodoList()),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
