@@ -4,13 +4,13 @@ description: A new Flutter project.|
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^0.1.2
   firebase_auth: ^0.14.0+5
   firebase_database: ^3.0.7
   permission: ^0.1.7
   speech_recognition: ^0.3.0
   flutter_tts : ^1.0.0
   flutter_dialogflow: ^0.1.0
+  cupertino_icons: ^0.1.2
 
 dev_dependencies:
   flutter_test:
