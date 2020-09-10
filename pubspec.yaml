@@ -1,33 +1,57 @@
-name: kenito_v2
-description: A new Flutter project.|
+name: kenito
+description: A new Flutter project.
+
+# The following line prevents the package from being accidentally published to
+# pub.dev using `pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  firebase_auth: ^0.14.0+5
-  firebase_database: ^3.0.7
-  permission: ^0.1.7
-  speech_recognition: ^0.3.0
-  flutter_tts : ^1.0.0
-  flutter_dialogflow: ^0.1.0
-  cupertino_icons: ^0.1.2
+  splashscreen:
+  permission: 
+  speech_recognition: 
+  flutter_tts : 
+  flutter_dialogflow: 
+  cupertino_icons: 
+  firebase_database: 
+  serial_number:
+  global_configuration:
+  app_settings:
+  firebase_core:
+  firebase_analytics:
+  firebase_auth:
+  random_string:
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_launcher_icons: ^0.7.4
 
 flutter_icons:
   image_path: "assets/35613265Untitled-3-512.png"
   android: true 
   ios: true
-  
+
 flutter:
   uses-material-design: true
   assets:
     - assets/flutter-icon.png
-    - assets/35613265Untitled-3-512.png
-    - assets/piggy-bank.png
-    - assets/credentials.json
-    - assets/banner_menu.jpg
     - assets/pngocean.com.png
+    - assets/ajax-loader.gif
+    - assets/credentials.json
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700

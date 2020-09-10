@@ -1,6 +1,7 @@
 import 'package:firebase_database/firebase_database.dart';
 
 class Todo {
+  String tabla = "Todo";
   String key;
   String subject;
   bool completed;
@@ -8,11 +9,11 @@ class Todo {
 
   Todo(this.subject, this.userId, this.completed);
 
-  Todo.fromSnapshot(DataSnapshot snapshot) :
-    key = snapshot.key,
-    userId = snapshot.value["userId"],
-    subject = snapshot.value["subject"],
-    completed = snapshot.value["completed"];
+  Todo.fromSnapshot(DataSnapshot snapshot)
+      : key = snapshot.key,
+        userId = snapshot.value["userId"],
+        subject = snapshot.value["subject"],
+        completed = snapshot.value["completed"];
 
   toJson() {
     return {

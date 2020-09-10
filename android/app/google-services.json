@@ -8,6 +8,42 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:965563738025:android:e2e8f784b0cbc1634086b8",
+        "android_client_info": {
+          "package_name": "com.example.kenito"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "965563738025-736u9g4fk5kl5pp8pnvmlg1bf68rrcb1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0qoEDYLBDd87HvVQc08reo2817HnILPg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "965563738025-qqjm7ffv95muiu444kettl94aee72ja2.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "965563738025-qvo3jrcksdn84qfopv8h749hmr5u44h6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.kenito"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:965563738025:android:5e50829614fe41da4086b8",
         "android_client_info": {
           "package_name": "com.example.kenito_flutter"
@@ -28,8 +64,15 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "965563738025-736u9g4fk5kl5pp8pnvmlg1bf68rrcb1.apps.googleusercontent.com",
+              "client_id": "965563738025-qqjm7ffv95muiu444kettl94aee72ja2.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "965563738025-qvo3jrcksdn84qfopv8h749hmr5u44h6.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.kenito"
+              }
             }
           ]
         }
