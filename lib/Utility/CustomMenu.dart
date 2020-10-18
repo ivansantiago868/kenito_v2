@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'package:flutter/foundation.dart';
+import 'package:kenito/pages/admin/loader_page.dart';
 import 'package:kenito/pages/admin/speech_page.dart';
 import 'package:kenito/pages/admin/bot_page.dart';
 import 'package:kenito/pages/admin/bd_page.dart';
@@ -29,21 +29,6 @@ class MenuLateral extends StatelessWidget {
                   new MaterialPageRoute(builder: (context) => new MyApp()));
             },
           ),
-          // Ink(
-          //   color: Colors.indigo,
-          //   child: new ListTile(
-          //     title: Text(
-          //       "KENITO",
-          //       style: TextStyle(color: Colors.white),
-          //     ),
-          //     onTap: () {
-          //       Navigator.push(
-          //           context,
-          //           new MaterialPageRoute(
-          //               builder: (context) => new IndexPage()));
-          //     },
-          //   ),
-          // ),
           new ListTile(
             title: Text("DEMO BOT"),
             onTap: () {
@@ -82,7 +67,16 @@ class MenuLateral extends StatelessWidget {
                   new MaterialPageRoute(
                       builder: (context) => new PermissionPage()));
             },
-          )
+          ),
+          new ListTile(
+            title: Text("Loader"),
+            onTap: () {
+              Navigator.push(
+                  context,
+                  new MaterialPageRoute(
+                      builder: (context) => new LoaderPage()));
+            },
+          ),
         ],
       ),
     );

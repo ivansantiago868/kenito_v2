@@ -1,4 +1,9 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_gifimage/flutter_gifimage.dart';
+import 'package:kenito/controller/modulos.dart';
+import 'package:kenito/models/Config.dart';
 import 'package:splashscreen/splashscreen.dart';
 import 'package:global_configuration/global_configuration.dart';
 import 'package:kenito/Utility/CustomButton.dart';
@@ -8,6 +13,7 @@ import 'package:kenito/pages/home_page.dart';
 import 'Dart:io';
 import 'package:flutter_dialogflow/dialogflow_v2.dart';
 import 'package:flutter_tts/flutter_tts.dart';
+import 'package:kenito/controller/arbol.dart';
 
 enum TtsState { playing, stopped }
 
@@ -23,40 +29,57 @@ class Language_t {
 }
 
 class ChatPage extends StatefulWidget {
+  final ArbolConfig serialStatus;
+
+  ChatPage({Key key, @required this.serialStatus}) : super(key: key);
+
   @override
-  _ChatPageState createState() => new _ChatPageState();
+  _ChatPageState createState() => new _ChatPageState(this.serialStatus);
 }
 
-class _ChatPageState extends State<ChatPage> {
-  SpeechRecognition _speech;
-  FlutterTts flutterTts;
+class _ChatPageState extends State<ChatPage> with TickerProviderStateMixin {
+  ArbolConfig serialStatus;
   bool _speechRecognitionAvailable = false;
   bool _isListening = false;
+  String image;
+  FlutterTts flutterTts;
+  String _newVoiceText;
+
+  ModuloController ArbolResponce;
+  //VARIABLES tts
+  double volume = 1.5;
+  double pitch = 1.0;
+  double rate = 0.8;
+  dynamic languages_tts;
+  TtsState ttsState = TtsState.stopped;
+
+  _ChatPageState(this.serialStatus);
+
+  //VARIABLES stt
+  SpeechRecognition _speech;
   Language_t selectedLang = languages.first;
   String transcription = '';
   String respuesta = '';
   final TextEditingController _textController = new TextEditingController();
   final List<ChatMessage> _messages = <ChatMessage>[];
   var status = true;
-  double volume = 1.5;
-  double pitch = 1.0;
-  double rate = 0.8;
-  String _newVoiceText;
-  TtsState ttsState = TtsState.stopped;
-  dynamic languages_tts;
 
   get isPlaying => ttsState == TtsState.playing;
-
   get isStopped => ttsState == TtsState.stopped;
-
+  GifController controller;
   @override
   initState() {
+    controller = GifController(vsync: this);
+    GlobalConfiguration cfg = new GlobalConfiguration();
     super.initState();
-    activateSpeechRecognizer();
-    cancel();
-    stop();
     initTts();
-    _newVoiceText = "¡Hola soy Kenito!, Como esta tu dia hoy?";
+    activateSpeechRecognizer();
+    stop();
+    Random random = new Random();
+    this.ArbolResponce = new ModuloController(
+        config: serialStatus, modulo: serialStatus.page.orden[0].modulo);
+    this.ArbolResponce.mensaje_bk.page.pedir_nombre = true;
+    _newVoiceText = this.ArbolResponce.mensaje_bk.page.bienvenida;
     _speak();
   }
 
@@ -73,19 +96,14 @@ class _ChatPageState extends State<ChatPage> {
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                    width: MediaQuery.of(context).copyWith().size.width,
-                    height: 400,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage("assets/pngocean.com.png"),
-                          fit: BoxFit.cover),
-                    )),
+                SetImagenDatos(),
                 new Expanded(
                     child: new Container(
                         alignment: Alignment.center,
                         child: new Text(
-                          _isListening ? 'Escuchando...' : 'Procesando',
+                          _speechRecognitionAvailable && !_isListening
+                              ? 'Escuchando...'
+                              : '',
                           textAlign: TextAlign.center,
                           style: new TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 20.0),
@@ -93,61 +111,88 @@ class _ChatPageState extends State<ChatPage> {
                 Container(
                   child: CustomButton(
                       onPressed: () {
-                        cancel();
-                        stop();
+                        // cancel();
+                        // stop();
                         Navigator.push(
                             context,
                             new MaterialPageRoute(
-                                builder: (context) => new HomePage()));
+                                builder: (context) => new HomePage(
+                                    serialStatus: this.serialStatus)));
                       },
                       mensaje: "Atras"),
-                )
+                ),
+                // Container(
+                //   child: CustomButton(
+                //       onPressed: () {
+                //         start();
+                //       },
+                //       mensaje: "Start"),
+                // )
               ],
             ),
           ),
         ));
-    // return new Scaffold(
-    //     backgroundColor: Colors.blue,
-    //     drawer: MenuLateral(),
-    //     body: new Center(
-    //       child: new Column(
-    //         mainAxisSize: MainAxisSize.min,
-    //         crossAxisAlignment: CrossAxisAlignment.stretch,
-    //         children: [
-    //           // new Expanded(child: new Container(child: new Text(respuesta))),
-    //           // CustomButtonAction(
-    //           //   onPressed: _speechRecognitionAvailable && !_isListening
-    //           //       ? () => start()
-    //           //       : null,
-    //           //   label: _isListening
-    //           //       ? 'Escuchando...'
-    //           //       : 'Escuchar (${selectedLang.code})',
-    //           // ),
-    //           new Expanded(
-    //               child: new Container(
-    //                   alignment: Alignment.center,
-    //                   child: new Text(
-    //                     _isListening ? 'Escuchando...' : 'Procesando',
-    //                     textAlign: TextAlign.center,
-    //                     style: new TextStyle(
-    //                         fontWeight: FontWeight.bold, fontSize: 20.0),
-    //                   ))),
-    //           CustomButtonAction(
-    //             onPressed: () {
-    //               cancel();
-    //               stop();
-    //               Navigator.push(
-    //                   context,
-    //                   new MaterialPageRoute(
-    //                       builder: (context) => new HomePage()));
-    //             },
-    //             label: 'Atras',
-    //           ),
-    //         ],
-    //       ),
-    //     ));
   }
 
+  SetImagenDatos() {
+    if (image != "" && image != null) {
+      return new Column(
+        children: <Widget>[
+          GifImage(
+            width: MediaQuery.of(context).copyWith().size.width,
+            height: 250,
+            controller: controller,
+            image: AssetImage("assets/Kenito.gif"),
+          ),
+          // Container(
+          //     width: MediaQuery.of(context).copyWith().size.width,
+          //     height: 250,
+          //     decoration: BoxDecoration(
+          //         image: DecorationImage(
+          //             image: AssetImage("assets/pngocean.com.png"),
+          //             fit: BoxFit.cover))),
+          Container(
+              width: MediaQuery.of(context).copyWith().size.width, height: 50),
+          new Container(
+              padding: const EdgeInsets.all(20),
+              width: 100,
+              height: 100,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage(image), fit: BoxFit.cover),
+              )),
+          Container(
+              width: MediaQuery.of(context).copyWith().size.width, height: 10)
+        ],
+      );
+    } else {
+      return new Column(
+        children: <Widget>[
+          GifImage(
+            width: MediaQuery.of(context).copyWith().size.width,
+            height: 400,
+            controller: controller,
+            image: AssetImage("assets/Kenito.gif"),
+          ),
+          // Container(
+          //     width: MediaQuery.of(context).copyWith().size.width,
+          //     height: 400,
+          //     decoration: BoxDecoration(
+          //         image: DecorationImage(
+          //             image: AssetImage("assets/pngocean.com.png"),
+          //             fit: BoxFit.cover))),
+          Container(
+              width: MediaQuery.of(context).copyWith().size.width, height: 50),
+          Container(
+              width: MediaQuery.of(context).copyWith().size.width, height: 10)
+        ],
+      );
+    }
+  }
+
+  void pedirNombre() {}
+
+  /****Modulo de Speech To Text sobre los campos  */
   void txtTospeech() => print('SpeechPage.onCurrentLocale... $transcription');
 
   void cancel() =>
@@ -156,7 +201,7 @@ class _ChatPageState extends State<ChatPage> {
   void stop() => _speech.stop().then((result) {
         setState(() => _isListening = result);
       });
-  // Platform messages are asynchronous, so we initialize in an async method.
+
   void activateSpeechRecognizer() {
     print('SpeechPage.activateSpeechRecognizer... ');
     _speech = new SpeechRecognition();
@@ -165,7 +210,7 @@ class _ChatPageState extends State<ChatPage> {
     _speech.setRecognitionStartedHandler(onRecognitionStarted);
     _speech.setRecognitionResultHandler(onRecognitionResult);
     _speech.setRecognitionCompleteHandler(onRecognitionComplete);
-    // _speech.setErrorHandler(errorHandler);
+    //_speech.setErrorHandler(errorHandler);
     _speech
         .activate()
         .then((res) => setState(() => _speechRecognitionAvailable = res));
@@ -180,8 +225,7 @@ class _ChatPageState extends State<ChatPage> {
 
   void onCurrentLocale(String locale) {
     print('SpeechPage.onCurrentLocale... $locale');
-    setState(
-        () => selectedLang = languages.firstWhere((l) => l.code == locale));
+    setState(() => selectedLang = languages.first);
   }
 
   void onRecognitionStarted() => setState(() => _isListening = true);
@@ -193,8 +237,108 @@ class _ChatPageState extends State<ChatPage> {
     debugPrint("texto completado en escucha $transcription");
     if (status) {
       status = false;
-      _handleSubmitted(transcription);
-      debugPrint(respuesta);
+      if (this.ArbolResponce.mensaje_bk.page.bienvenida == _newVoiceText &&
+          this.ArbolResponce.mensaje_bk.page.pedir_nombre) {
+        Random random = new Random();
+        this.ArbolResponce.mensaje_bk.page.nombre = transcription;
+        this.ArbolResponce.mensaje_bk.page.pedir_nombre = false;
+        this.ArbolResponce.asignacionModuloInicial(
+            this.ArbolResponce.mensaje_bk.page.orden[0].modulo);
+        switch (this.ArbolResponce.mensaje_ini.type) {
+          case "boolmulti":
+            var splitPregunta =
+                this.ArbolResponce.mensaje_ini.der.pregunta.split(",");
+            int randomNumber = random.nextInt(
+                this.ArbolResponce.mensaje_ini.der.pregunta.split(",").length);
+            this.ArbolResponce.mensaje_ini.der.pregunta =
+                splitPregunta[randomNumber];
+            break;
+          case "image":
+            this.image = this.ArbolResponce.mensaje_ini.image;
+            _newVoiceText = this.ArbolResponce.mensaje_ini.pregunta;
+            break;
+          case "bool":
+            _newVoiceText = this.ArbolResponce.mensaje_ini.pregunta;
+            break;
+          default:
+            _newVoiceText = this.ArbolResponce.mensaje_ini.pregunta;
+        }
+        _speak();
+      } else {
+        switch (this.ArbolResponce.mensaje_ini.type) {
+          case "image":
+            this.ArbolResponce.GetResponseBool(transcription);
+            _newVoiceText =
+                ArbolResponce.error + ArbolResponce.mensaje_ini.pregunta;
+            this.image = "";
+            if (ArbolResponce.mensaje_ini.type == "respuesta") {
+              status = true;
+              onRecognitionComplete();
+            } else {
+              _speak();
+            }
+            break;
+          case "bool":
+            this.ArbolResponce.GetResponseBool(transcription);
+            _newVoiceText =
+                ArbolResponce.error + ArbolResponce.mensaje_ini.pregunta;
+            if (ArbolResponce.mensaje_ini.type == "respuesta") {
+              status = true;
+              onRecognitionComplete();
+            } else {
+              _speak();
+            }
+
+            break;
+          case "pregunta":
+            break;
+          case "boolmulti":
+            this.ArbolResponce.GetResponseBool(transcription);
+            _newVoiceText =
+                ArbolResponce.error + ArbolResponce.mensaje_ini.pregunta;
+            _speak();
+            break;
+          case "respuesta":
+            switch (this.ArbolResponce.mensaje_ini.pregunta) {
+              case "@Gracias":
+                _newVoiceText = "Gracias por todo";
+                _speak();
+                this.ArbolResponce.mensaje_bk.page.pedir_nombre = true;
+                this.serialStatus.page.pedir_nombre = true;
+                Navigator.push(
+                    context,
+                    new MaterialPageRoute(
+                        builder: (context) =>
+                            new HomePage(serialStatus: this.serialStatus)));
+                break;
+              case "@Dolor":
+                break;
+              case "@Charla":
+                var pre = new Pregunta(
+                    key: 0,
+                    type: "dialogflow",
+                    pregunta: "preguntame lo que quieras",
+                    respuesta: "",
+                    image: "",
+                    izq: new Pregunta(),
+                    der: new Pregunta());
+                ArbolResponce.mensaje_ini = pre;
+                _newVoiceText = pre.pregunta;
+                transcription = "";
+                status = true;
+                _speak();
+                break;
+              default:
+            }
+            break;
+          case "dialogflow":
+            _handleSubmitted(transcription);
+            debugPrint("respuesta" + respuesta);
+            transcription = "";
+            break;
+          default:
+        }
+      }
     }
   }
 
@@ -254,6 +398,7 @@ class _ChatPageState extends State<ChatPage> {
     }
   }
 
+  /****Modulo de TTS sobre los campos  */
   Future _speak() async {
     await flutterTts.setVolume(volume);
     await flutterTts.setSpeechRate(rate);
@@ -262,11 +407,14 @@ class _ChatPageState extends State<ChatPage> {
     if (_newVoiceText != null) {
       if (_newVoiceText.isNotEmpty) {
         var result = await flutterTts.speak(_newVoiceText);
-        var num_Palabras = _newVoiceText.split("\\s+|\n").length;
-        int pal = (num_Palabras % 2);
-        if (result == 1) setState(() {});
+        if (result == 1) setState(() => ttsState = TtsState.playing);
       }
     }
+  }
+
+  Future _stop() async {
+    var result = await flutterTts.stop();
+    if (result == 1) setState(() => ttsState = TtsState.stopped);
   }
 
   Future _getLanguages() async {
@@ -278,21 +426,26 @@ class _ChatPageState extends State<ChatPage> {
     flutterTts = FlutterTts();
 
     _getLanguages();
-    flutterTts.setLanguage("es-ES");
+    flutterTts.setLanguage(languages.first.code);
     flutterTts.setStartHandler(() {
       setState(() {
-        print("playing");
+        controller.repeat(min: 0, max: 10, period: Duration(milliseconds: 300));
+        print("playing " + _newVoiceText);
         ttsState = TtsState.playing;
       });
     });
 
     flutterTts.setCompletionHandler(() {
       setState(() {
-        print("Complete");
-        status = true;
-        sleep(const Duration(seconds: 1));
-        start();
+        print("Complete tts");
+        controller.stop();
         ttsState = TtsState.stopped;
+        _isListening = false;
+        status = true;
+        if (_speechRecognitionAvailable && !_isListening) {
+          // () =>
+          start();
+        }
       });
     });
 

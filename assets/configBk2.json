@@ -1,0 +1,1076 @@
+{
+    "version": 1.2,
+    "gracias": "Gracias por hablar conmigo",
+    "exepcion": "No entendi, Te pregunto de nuevo,  ",
+    "nombre": "",
+    "pedir_nombre": true,
+    "bienvenida": "Hola soy kenito, Como te llamas ?",
+    "orden": [
+      {
+        "name": "@Educacion"
+      },
+      {
+        "name": "@Dolor"
+      },
+      {
+        "name": "@Charla"
+      },
+      {
+        "name": "@Educacion"
+      }
+    ],
+    "@binario": {
+      "positivo": "Bien,bien",
+      "negativo": "Mal,Regular"
+    },
+    "@Educacion": {
+      "type": "bool",
+      "key": 1,
+      "pregunta": "quiero hablar contigo, estas aquí con migo por que seguramente has sentido dolor alguna vez y yo te quiero enseñar lo que es el dolor, pero antes de empezar, quisiera saber ¿cómo te has sentido hoy?",
+      "respuesta": "",
+      "image": "",
+      "@binario": {
+        "positivo": "Bien,bien",
+        "negativo": "Mal,mal,Regular,regular,muy mal"
+      },
+      "der": {
+        "type": "bool",
+        "key": 2,
+        "pregunta": "Que bueno, me hace muy feliz que estes bien. Seguramente hoy vas aprender muchas cosas sobre el dolor que te van a servir mucho. ¿Cuántos años tienes?",
+        "respuesta": "",
+        "image": "",
+        "@binario": {
+          "positivo": "seis,siete,ocho,nueve,diez,6,7,8,9,10",
+          "negativo": "1,2,3,4,5,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,uno,dos,tres,cuatro,cinco,once,doce,trece,catorce,quince"
+        },
+        "der": {
+          "type": "bool",
+          "key": 5,
+          "pregunta": "¿ A que te gusta jugar? A las escondidas, las cogidas, super héroes, videojuegos o a las muñecas",
+          "respuesta": "",
+          "image": "",
+          "@binario": {
+            "positivo": "A las escondidas, las cogidas, super héroes, videojuegos, a las muñecas",
+            "negativo": "no me gusta, no juego, no, No"
+          },
+          "der": {
+            "type": "respuesta",
+            "key": 2,
+            "pregunta": "",
+            "respuesta": "@Charla",
+            "image": "",
+            "@binario": {
+              "positivo": "",
+              "negativo": ""
+            },
+            "der": "",
+            "izq": ""
+          },
+          "izq": {
+            "type": "respuesta",
+            "key": 2,
+            "pregunta": "",
+            "respuesta": "@Dolor",
+            "image": "",
+            "@binario": {
+              "positivo": "",
+              "negativo": ""
+            },
+            "der": "",
+            "izq": ""
+          }
+        },
+        "izq": {
+          "type": "respuesta",
+          "key": 2,
+          "pregunta": "",
+          "respuesta": "@Gracias",
+          "image": "",
+          "@binario": {
+            "positivo": "",
+            "negativo": ""
+          },
+          "der": "",
+          "izq": ""
+        }
+      },
+      "izq": {
+        "type": "boolmulti",
+        "key": 2,
+        "pregunta": "¿ Que ha pasado? ¿ Quieres contarme?,¿Te duele?, ¿No puedes jugar? ¿Te sientes enfermo? ¿Estas cansado? ¿Te sientes triste? ¿Estas aburrido?",
+        "respuesta": "",
+        "image": "",
+        "@binario": {
+          "positivo": "Sí,Me duele,No puedo jugar,Me siento enfermo,Estoy cansado,Me siento triste,Estoy aburrido,sí lo estoy",
+          "negativo": "No, no"
+        },
+        "der": {
+          "type": "bool",
+          "key": 5,
+          "pregunta": "Puedo imaginar como te sientes, a todos nos encanta jugar y cuando no podemos hacerlo nos sentimos tristes y nos aburrimos fácilmente. Estoy aquí para hablar contigo y enseñarte a sentirte mejor. Pero antes de continuar me gustaría saber cuantos años tienes.",
+          "respuesta": "",
+          "image": "",
+          "@binario": {
+            "positivo": "seis,siete,ocho,nueve,diez,6,7,8,9,10",
+            "negativo": "1,2,3,4,5,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,uno,dos,tres,cuatro,cinco,once,doce,trece,catorce,quince"
+          },
+          "der": {
+            "type": "respuesta",
+            "key": 2,
+            "pregunta": "",
+            "respuesta": "@Charla",
+            "image": "",
+            "@binario": {
+              "positivo": "",
+              "negativo": ""
+            },
+            "der": "",
+            "izq": ""
+          },
+          "izq": {
+            "type": "respuesta",
+            "key": 2,
+            "pregunta": "",
+            "respuesta": "@Charla",
+            "image": "",
+            "@binario": {
+              "positivo": "",
+              "negativo": ""
+            },
+            "der": "",
+            "izq": ""
+          }
+        },
+        "izq": {
+          "type": "bool",
+          "key": 5,
+          "pregunta": "Que bueno, me hace muy feliz que estes bien. Seguramente hoy vas aprender muchas cosas sobre el dolor que te van a servir mucho. ¿Cuántos años tienes?",
+          "respuesta": "",
+          "image": "",
+          "@binario": {
+            "positivo": "seis,siete,ocho,nueve,diez,6,7,8,9,10",
+            "negativo": "1,2,3,4,5,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,uno,dos,tres,cuatro,cinco,once,doce,trece,catorce,quince"
+          },
+          "der": {
+            "type": "bool",
+            "key": 1,
+            "pregunta": "¡ Que bien! Me gusta tener amigos como tú. Me han enseñado muchas cosas sobre el dolor ¿ te gustaría que te las contara? Responde por favor Si o No",
+            "respuesta": "",
+            "image": "",
+            "@binario": {
+              "positivo": "Si,sí,si",
+              "negativo": "No,no"
+            },
+            "der": {
+              "type": "respuesta",
+              "key": 2,
+              "pregunta": "",
+              "respuesta": "@Charla",
+              "image": "",
+              "@binario": {
+                "positivo": "",
+                "negativo": ""
+              },
+              "der": "",
+              "izq": ""
+            },
+            "izq": {
+              "type": "respuesta",
+              "key": 2,
+              "pregunta": "",
+              "respuesta": "@Charla",
+              "image": "",
+              "@binario": {
+                "positivo": "",
+                "negativo": ""
+              },
+              "der": "",
+              "izq": ""
+            }
+          },
+          "izq": {
+            "type": "bool",
+            "key": 5,
+            "pregunta": "¿Cuántos años tienes?",
+            "respuesta": "",
+            "image": "",
+            "@binario": {
+              "positivo": "seis,siete,ocho,nueve,diez,6,7,8,9,10",
+              "negativo": "1,2,3,4,5,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,uno,dos,tres,cuatro,cinco,once,doce,trece,catorce,quince"
+            },
+            "der": {
+              "type": "bool",
+              "key": 1,
+              "pregunta": "¿ A que te gusta jugar? A las escondidas, las cogidas, super héroes, videojuegos a las muñecas",
+              "respuesta": "",
+              "image": "",
+              "@binario": {
+                "positivo": "A las escondidas, las cogidas, super héroes, videojuegos a las muñecas",
+                "negativo": "No"
+              },
+              "der": {
+                "type": "bool",
+                "key": 1,
+                "pregunta": "¡Que interesante! A mi me gusta jugar videojuegos. Me divierto mucho jugando con otros niños y tambien me gusta mucho aprender cosas nuevas. Me han enseñado muchas cosas sobre el dolor ¿ te gustaría que te las contara?  Por favor responde Si o No",
+                "respuesta": "",
+                "image": "",
+                "@binario": {
+                  "positivo": "Si,sí,si",
+                  "negativo": "No,no"
+                },
+                "der": {
+                  "type": "respuesta",
+                  "key": 2,
+                  "pregunta": "",
+                  "respuesta": "@Charla",
+                  "image": "",
+                  "@binario": {
+                    "positivo": "",
+                    "negativo": ""
+                  },
+                  "der": "",
+                  "izq": ""
+                },
+                "izq": {
+                  "type": "respuesta",
+                  "key": 2,
+                  "pregunta": "",
+                  "respuesta": "@Charla",
+                  "image": "",
+                  "@binario": {
+                    "positivo": "",
+                    "negativo": ""
+                  },
+                  "der": "",
+                  "izq": ""
+                }
+              },
+              "izq": {
+                "type": "respuesta",
+                "key": 2,
+                "pregunta": "",
+                "respuesta": "@Charla",
+                "image": "",
+                "@binario": {
+                  "positivo": "",
+                  "negativo": ""
+                },
+                "der": "",
+                "izq": ""
+              }
+            },
+            "izq": {
+              "type": "respuesta",
+              "key": 1,
+              "pregunta": "",
+              "respuesta": "@Dolor",
+              "image": "",
+              "@binario": {
+                "positivo": "",
+                "negativo": ""
+              },
+              "der": {},
+              "izq": {}
+            }
+          }
+        }
+      }
+    },
+    "@Dolor": {
+      "type": "bool",
+      "key": 1,
+      "pregunta": "Me gustaría saber cuándo has sentido dolor en tu cuerpo por algo relacionado con tu enfermedad. Por ejemplo, un examen en el que se use una inyección, o cuando tienes que ir a que te pongan algo en tu cuerpo. A todo eso lo llamaremos procedimiento médico. Por favor responde Antes de ir al hospital a un procedimiento médico. ¿Has sentido dolor? Por favor responde Si o No",
+      "respuesta": "",
+      "image": "assets/cuerpo/foot.png",
+      "@binario": {
+        "positivo": "Sí,sí",
+        "negativo": "No,no"
+      },
+      "der": {
+        "type": "pregunta",
+        "key": 2,
+        "pregunta": "",
+        "respuesta": "0",
+        "image": "",
+        "@binario": {
+          "positivo": "",
+          "negativo": ""
+        },
+        "izq": "",
+        "der": ""
+      },
+      "izq": {
+        "type": "bool",
+        "key": 3,
+        "pregunta": "Mientras estás en el hospital y te están haciendo un procedimiento médico. ¿Has sentido dolor? Por favor responde Si o No",
+        "respuesta": "",
+        "image": "",
+        "@binario": {
+          "positivo": "Sí,sí",
+          "negativo": "No,no"
+        },
+        "der": {
+          "type": "pregunta",
+          "key": 2,
+          "pregunta": "",
+          "respuesta": "90",
+          "image": "",
+          "@binario": {
+            "positivo": "",
+            "negativo": ""
+          },
+          "izq": "",
+          "der": ""
+        },
+        "izq": {
+          "type": "bool",
+          "key": 3,
+          "pregunta": "Al terminar el procedimiento médico. ¿Has sentido dolor? Por favor responde Si o No",
+          "respuesta": "",
+          "image": "",
+          "@binario": {
+            "positivo": "Sí,sí",
+            "negativo": "No,no"
+          },
+          "der": {
+            "type": "pregunta",
+            "key": 2,
+            "pregunta": "",
+            "respuesta": "120",
+            "image": "",
+            "@binario": {
+              "positivo": "",
+              "negativo": ""
+            },
+            "izq": "",
+            "der": ""
+          },
+          "izq": {
+            "type": "bool",
+            "key": 3,
+            "pregunta": "¿Ahora mismo tienes dolor? Por favor responde Si o No",
+            "respuesta": "",
+            "image": "",
+            "@binario": {
+              "positivo": "Sí,sí",
+              "negativo": "No,no"
+            },
+            "der": {
+              "type": "respuesta",
+              "key": 1,
+              "pregunta": "",
+              "respuesta": "@Gracias",
+              "image": "",
+              "@binario": {
+                "positivo": "",
+                "negativo": ""
+              },
+              "der": {},
+              "izq": {}
+            },
+            "izq": {
+              "type": "respuesta",
+              "key": 1,
+              "pregunta": "",
+              "respuesta": "@Gracias",
+              "image": "",
+              "@binario": {
+                "positivo": "",
+                "negativo": ""
+              },
+              "der": {},
+              "izq": {}
+            }
+          }
+        }
+      }
+    },
+    "@listaPreguntas": [
+      {
+        "type": "ruta",
+        "key": 0,
+        "pregunta": "Me has dicho que tienes dolor antes de un procedimiento médico. Para que yo pueda entenderte y darle información a tus médicos, te voy a hacer más preguntas sobre el dolor. Así sabremos qué es lo que pasa en tu cuerpo. ¿El dolor que sientes aparece el mismo día que te harán el procedimiento médico? Por favor responde Si o No.",
+        "respuesta": {
+          "positivo": 1,
+          "negativo": 1
+        },
+        "image": "",
+        "@binario": {
+          "positivo": "Si,si,sí",
+          "negativo": "No,no"
+        }
+      },
+      {
+        "type": "ruta",
+        "key": 1,
+        "pregunta": "¿El dolor que sientes aparece la noche anterior al procedimiento médico? Por favor responde Si o No",
+        "respuesta": {
+          "positivo": 2,
+          "negativo": 2
+        },
+        "image": "",
+        "@binario": {
+          "positivo": "Si,si,sí",
+          "negativo": "No,no"
+        }
+      },
+      {
+        "type": "ruta",
+        "key": 2,
+        "pregunta": "¿El dolor que sientes aparece el día antes al procedimiento médico? Por favor responde Si o No",
+        "respuesta": {
+          "positivo": 3,
+          "negativo": 3
+        },
+        "image": "",
+        "@binario": {
+          "positivo": "Si,si,sí",
+          "negativo": "No,no"
+        }
+      },
+      {
+        "type": "enrutador",
+        "key": 3,
+        "pregunta": "@Charla",
+        "respuesta": {
+          "positivo": 4,
+          "negativo": 4
+        },
+        "image": "",
+        "@binario": {
+          "positivo": "Si,si,sí",
+          "negativo": "No,no"
+        }
+      },
+      {
+        "type": "ruta",
+        "key": 4,
+        "pregunta": "Me has dado información muy valiosa, gracias. Ahora necesito más información sobre esas respuestas que me has dado. Por favor escucha y observa con mucha atención para que yo pueda entender lo que sientes. Te voy a mostrar unas imágenes de las partes del cuerpo, y me gustaría que en cada una de ellas, tú me digas si has tenido dolor antes de ir a un procedimiento médico. ¿Te ha dolido la cabeza? Por favor responde Si o No",
+        "respuesta": {
+          "positivo": 14,
+          "negativo": 5
+        },
+        "image": "assets/cuerpo/cabeza.jpg",
+        "@binario": {
+          "positivo": "Si,si,sí",
+          "negativo": "No,no"
+        }
+      },
+      {
+        "type": "ruta",
+        "key": 5,
+        "pregunta": "¿Te ha dolido el Cuello y los Hombros? Por favor responde Si o No",
+        "respuesta": {
+          "positivo": 15,
+          "negativo": 6
+        },
+        "image": "assets/cuerpo/cuello.jpg",
+        "@binario": {
+          "positivo": "Si,si,sí",
+          "negativo": "No,no"
+        }
+      },
+      {
+        "type": "ruta",
+        "key": 6,
+        "pregunta": "¿Te ha dolido el Brazo? Por favor responde Si o No",
+        "respuesta": {
+          "positivo": 16,
+          "negativo": 7
+        },
+        "image": "assets/cuerpo/brazo.jpg",
+        "@binario": {
+          "positivo": "Si,si,sí",
+          "negativo": "No,no"
+        }
+      },
+      {
+        "type": "ruta",
+        "key": 7,
+        "pregunta": "¿Te ha dolido el Antebrazo? Por favor responde Si o No",
+        "respuesta": {
+          "positivo": 17,
+          "negativo": 8
+        },
+        "image": "assets/cuerpo/antebrazo.jpg",
+        "@binario": {
+          "positivo": "Si,si,sí",
+          "negativo": "No,no"
+        }
+      },
+      {
+        "type": "ruta",
+        "key": 8,
+        "pregunta": "¿Te ha dolido el Pecho? Por favor responde Si o No",
+        "respuesta": {
+          "positivo": 18,
+          "negativo": 9
+        },
+        "image": "assets/cuerpo/pecho.jpg",
+        "@binario": {
+          "positivo": "Si,si,sí",
+          "negativo": "No,no"
+        }
+      },
+      {
+        "type": "ruta",
+        "key": 9,
+        "pregunta": "¿Te ha dolido el Estómago? Por favor responde Si o No",
+        "respuesta": {
+          "positivo": 19,
+          "negativo": 10
+        },
+        "image": "assets/cuerpo/estomago.jpg",
+        "@binario": {
+          "positivo": "Si,si,sí",
+          "negativo": "No,no"
+        }
+      },
+      {
+        "type": "ruta",
+        "key": 10,
+        "pregunta": "¿Te han dolido las Caderas? Por favor responde Si o No",
+        "respuesta": {
+          "positivo": 20,
+          "negativo": 11
+        },
+        "image": "assets/cuerpo/caderas.jpg",
+        "@binario": {
+          "positivo": "Si,si,sí",
+          "negativo": "No,no"
+        }
+      },
+      {
+        "type": "ruta",
+        "key": 11,
+        "pregunta": "¿Te han dolido las Piernas? Por favor responde Si o No",
+        "respuesta": {
+          "positivo": 21,
+          "negativo": 12
+        },
+        "image": "assets/cuerpo/piernas.jpg",
+        "@binario": {
+          "positivo": "Si,si,sí",
+          "negativo": "No,no"
+        }
+      },
+      {
+        "type": "ruta",
+        "key": 12,
+        "pregunta": "¿Te han dolido las Manos? Por favor responde Si o No",
+        "respuesta": {
+          "positivo": 22,
+          "negativo": 13
+        },
+        "image": "assets/cuerpo/manos.jpg",
+        "@binario": {
+          "positivo": "Si,si,sí",
+          "negativo": "No,no"
+        }
+      },
+      {
+        "type": "ruta",
+        "key": 13,
+        "pregunta": "¿Te han dolido los Pies? Por favor responde Si o No",
+        "respuesta": {
+          "positivo": 23,
+          "negativo": 24
+        },
+        "image": "assets/cuerpo/pies.jpg",
+        "@binario": {
+          "positivo": "Si,si,sí",
+          "negativo": "No,no"
+        }
+      },
+      {
+        "type": "ruta",
+        "key": 14,
+        "pregunta": "Vamos a confirmar. Me dijiste que antes de un procedimiento médico, te ha dolido en: la Cabeza. Por favor responde con la palabra correcto.",
+        "respuesta": {
+          "positivo": 25,
+          "negativo": 25
+        },
+        "image": "",
+        "@binario": {
+          "positivo": "Correcto,correcto",
+          "negativo": "Correcto,correcto"
+        }
+      },
+      {
+        "type": "ruta",
+        "key": 15,
+        "pregunta": "Vamos a confirmar. Me dijiste que antes de un procedimiento médico, te ha dolido en cuello y hombros. Por favor responde con la palabra correcto.",
+        "respuesta": {
+          "positivo": 26,
+          "negativo": 26
+        },
+        "image": "",
+        "@binario": {
+          "positivo": "Correcto,correcto",
+          "negativo": "Correcto,correcto"
+        }
+      },
+      {
+        "type": "ruta",
+        "key": 16,
+        "pregunta": "Vamos a confirmar. Me dijiste que antes de un procedimiento médico, te ha dolido el brazo. Por favor responde con la palabra correcto.",
+        "respuesta": {
+          "positivo": 27,
+          "negativo": 27
+        },
+        "image": "",
+        "@binario": {
+          "positivo": "Correcto,correcto",
+          "negativo": "Correcto,correcto"
+        }
+      },
+      {
+        "type": "ruta",
+        "key": 17,
+        "pregunta": "Vamos a confirmar. Me dijiste que antes de un procedimiento médico, te ha dolido el antebrazo. Por favor responde con la palabra correcto.",
+        "respuesta": {
+          "positivo": 28,
+          "negativo": 28
+        },
+        "image": "",
+        "@binario": {
+          "positivo": "Correcto,correcto",
+          "negativo": "Correcto,correcto"
+        }
+      },
+      {
+        "type": "ruta",
+        "key": 18,
+        "pregunta": "Vamos a confirmar. Me dijiste que antes de un procedimiento médico, te ha dolido el pecho. Por favor responde con la palabra correcto.",
+        "respuesta": {
+          "positivo": 29,
+          "negativo": 29
+        },
+        "image": "",
+        "@binario": {
+          "positivo": "Correcto,correcto",
+          "negativo": "Correcto,correcto"
+        }
+      },
+      {
+        "type": "ruta",
+        "key": 19,
+        "pregunta": "Vamos a confirmar. Me dijiste que antes de un procedimiento médico, te ha dolido el estómago. Por favor responde con la palabra correcto.",
+        "respuesta": {
+          "positivo": 30,
+          "negativo": 30
+        },
+        "image": "",
+        "@binario": {
+          "positivo": "Correcto,correcto",
+          "negativo": "Correcto,correcto"
+        }
+      },
+      {
+        "type": "ruta",
+        "key": 20,
+        "pregunta": "Vamos a confirmar. Me dijiste que antes de un procedimiento médico, te han dolido las caderas. Por favor responde con la palabra correcto.",
+        "respuesta": {
+          "positivo": 31,
+          "negativo": 31
+        },
+        "image": "",
+        "@binario": {
+          "positivo": "Correcto,correcto",
+          "negativo": "Correcto,correcto"
+        }
+      },
+      {
+        "type": "ruta",
+        "key": 21,
+        "pregunta": "Vamos a confirmar. Me dijiste que antes de un procedimiento médico, te han dolido las piernas. Por favor responde con la palabra correcto.",
+        "respuesta": {
+          "positivo": 32,
+          "negativo": 32
+        },
+        "image": "",
+        "@binario": {
+          "positivo": "Correcto,correcto",
+          "negativo": "Correcto,correcto"
+        }
+      },
+      {
+        "type": "ruta",
+        "key": 22,
+        "pregunta": "Vamos a confirmar. Me dijiste que antes de un procedimiento médico, te han dolido las manos. Por favor responde con la palabra correcto.",
+        "respuesta": {
+          "positivo": 33,
+          "negativo": 33
+        },
+        "image": "",
+        "@binario": {
+          "positivo": "Correcto,correcto",
+          "negativo": "Correcto,correcto"
+        }
+      },
+      {
+        "type": "ruta",
+        "key": 23,
+        "pregunta": "Vamos a confirmar. Me dijiste que antes de un procedimiento médico, te han dolido los pies. Por favor responde con la palabra correcto.",
+        "respuesta": {
+          "positivo": 34,
+          "negativo": 34
+        },
+        "image": "",
+        "@binario": {
+          "positivo": "Correcto,correcto",
+          "negativo": "Correcto,correcto"
+        }
+      },
+      {
+        "type": "ruta",
+        "key": 24,
+        "pregunta": "Ahora veamos qué tan fuerte es ese dolor, Por favor responde correcto.",
+        "respuesta": {
+          "positivo": 35,
+          "negativo": 35
+        },
+        "image": "",
+        "@binario": {
+          "positivo": "Correcto,correcto",
+          "negativo": "Correcto,correcto"
+        }
+      },
+      {
+        "type": "ruta",
+        "key": 25,
+        "pregunta": "Ahora veamos qué tan fuerte es ese dolor en la Cabeza, Por favor, observa las imágenes y busca cuál es la cara que más se parece al dolor que tú has tenido. Cuando la tengas, dime el color que está debajo de la cara.",
+        "respuesta": {
+          "positivo": 35,
+          "negativo": 35
+        },
+        "image": "assets/cuerpo/carasdolor.jpg",
+        "@binario": {
+          "positivo": "Amarillo",
+          "negativo": "Azul"
+        }
+      },
+      {
+        "type": "ruta",
+        "key": 26,
+        "pregunta": "Ahora veamos qué tan fuerte es ese dolor en la Cuello y Hombros, Por favor, observa las imágenes y busca cuál es la cara que más se parece al dolor que tú has tenido. Cuando la tengas, dime el color que está debajo de la cara.",
+        "respuesta": {
+          "positivo": 35,
+          "negativo": 35
+        },
+        "image": "assets/cuerpo/carasdolor.jpg",
+        "@binario": {
+          "positivo": "Amarillo",
+          "negativo": "Azul"
+        }
+      },
+      {
+        "type": "ruta",
+        "key": 27,
+        "pregunta": "Ahora veamos qué tan fuerte es ese dolor en la Brazo, Por favor, observa las imágenes y busca cuál es la cara que más se parece al dolor que tú has tenido. Cuando la tengas, dime el color que está debajo de la cara",
+        "respuesta": {
+          "positivo": 35,
+          "negativo": 35
+        },
+        "image": "assets/cuerpo/carasdolor.jpg",
+        "@binario": {
+          "positivo": "Amarillo",
+          "negativo": "Azul"
+        }
+      },
+      {
+        "type": "ruta",
+        "key": 28,
+        "pregunta": "Ahora veamos qué tan fuerte es ese dolor en la Antebrazo, Por favor, observa las imágenes y busca cuál es la cara que más se parece al dolor que tú has tenido. Cuando la tengas, dime el color que está debajo de la cara.",
+        "respuesta": {
+          "positivo": 35,
+          "negativo": 35
+        },
+        "image": "assets/cuerpo/carasdolor.jpg",
+        "@binario": {
+          "positivo": "Amarillo",
+          "negativo": "Azul"
+        }
+      },
+      {
+        "type": "ruta",
+        "key": 29,
+        "pregunta": "Ahora veamos qué tan fuerte es ese dolor en el Pecho, Por favor, observa las imágenes y busca cuál es la cara que más se parece al dolor que tú has tenido. Cuando la tengas, dime el color que está debajo de la cara.",
+        "respuesta": {
+          "positivo": 35,
+          "negativo": 35
+        },
+        "image": "assets/cuerpo/carasdolor.jpg",
+        "@binario": {
+          "positivo": "Amarillo",
+          "negativo": "Azul"
+        }
+      },
+      {
+        "type": "ruta",
+        "key": 30,
+        "pregunta": "Ahora veamos qué tan fuerte es ese dolor en el Estómago, Por favor, observa las imágenes y busca cuál es la cara que más se parece al dolor que tú has tenido. Cuando la tengas, dime el color que está debajo de la cara.",
+        "respuesta": {
+          "positivo": 35,
+          "negativo": 35
+        },
+        "image": "assets/cuerpo/carasdolor.jpg",
+        "@binario": {
+          "positivo": "Amarillo",
+          "negativo": "Azul"
+        }
+      },
+      {
+        "type": "ruta",
+        "key": 31,
+        "pregunta": "Ahora veamos qué tan fuerte es ese dolor en las caderas, Por favor, observa las imágenes y busca cuál es la cara que más se parece al dolor que tú has tenido. Cuando la tengas, dime el color que está debajo de la cara.",
+        "respuesta": {
+          "positivo": 35,
+          "negativo": 35
+        },
+        "image": "assets/cuerpo/carasdolor.jpg",
+        "@binario": {
+          "positivo": "Amarillo",
+          "negativo": "Azul"
+        }
+      },
+      {
+        "type": "ruta",
+        "key": 32,
+        "pregunta": "Ahora veamos qué tan fuerte es ese dolor en las Piernas, Por favor, observa las imágenes y busca cuál es la cara que más se parece al dolor que tú has tenido. Cuando la tengas, dime el color que está debajo de la cara. ",
+        "respuesta": {
+          "positivo": 35,
+          "negativo": 35
+        },
+        "image": "assets/cuerpo/carasdolor.jpg",
+        "@binario": {
+          "positivo": "Amarillo",
+          "negativo": "Azul"
+        }
+      },
+      {
+        "type": "ruta",
+        "key": 33,
+        "pregunta": "Ahora veamos qué tan fuerte es ese dolor en las Manos, Por favor, observa las imágenes y busca cuál es la cara que más se parece al dolor que tú has tenido. Cuando la tengas, dime el color que está debajo de la cara.",
+        "respuesta": {
+          "positivo": 35,
+          "negativo": 35
+        },
+        "image": "assets/cuerpo/carasdolor.jpg",
+        "@binario": {
+          "positivo": "Amarillo",
+          "negativo": "Azul"
+        }
+      },
+      {
+        "type": "ruta",
+        "key": 34,
+        "pregunta": "Ahora veamos qué tan fuerte es ese dolor en los Pies, Por favor, observa las imágenes y busca cuál es la cara que más se parece al dolor que tú has tenido. Cuando la tengas, dime el color que está debajo de la cara.",
+        "respuesta": {
+          "positivo": 35,
+          "negativo": 35
+        },
+        "image": "assets/cuerpo/carasdolor.jpg",
+        "@binario": {
+          "positivo": "Amarillo",
+          "negativo": "Azul"
+        }
+      },
+      {
+        "type": "ruta",
+        "key": 35,
+        "pregunta": "Es importante saber en qué momentos es que tienes dolor. Cuando te duele antes de ir al procedimiento médico, ¿en qué momento aparece, una vez en el día y luego se va? Por favor responde Si o No",
+        "respuesta": {
+          "positivo": 36,
+          "negativo": 36
+        },
+        "image": "",
+        "@binario": {
+          "positivo": "Si,si,sí",
+          "negativo": "No,no"
+        }
+      },
+      {
+        "type": "ruta",
+        "key": 36,
+        "pregunta": "¿Dos o más veces en el día y luego se va? Por favor responde Si o No",
+        "respuesta": {
+          "positivo": 37,
+          "negativo": 37
+        },
+        "image": "",
+        "@binario": {
+          "positivo": "Si,si,sí",
+          "negativo": "No,no"
+        }
+      },
+      {
+        "type": "ruta",
+        "key": 37,
+        "pregunta": "¿Dura todo el día? Por favor responde Si o No",
+        "respuesta": {
+          "positivo": 38,
+          "negativo": 38
+        },
+        "image": "",
+        "@binario": {
+          "positivo": "Si,si,sí",
+          "negativo": "No,no"
+        }
+      },
+      {
+        "type": "ruta",
+        "key": 38,
+        "pregunta": "¿En qué momento del día es cuando tientes más dolor , En la mañana? Por favor responde Si o No",
+        "respuesta": {
+          "positivo": 39,
+          "negativo": 39
+        },
+        "image": "",
+        "@binario": {
+          "positivo": "Si,si,sí",
+          "negativo": "No,no"
+        }
+      },
+      {
+        "type": "ruta",
+        "key": 39,
+        "pregunta": "¿En la tarde? Por favor responde Si o No",
+        "respuesta": {
+          "positivo": 40,
+          "negativo": 40
+        },
+        "image": "",
+        "@binario": {
+          "positivo": "Si,si,sí",
+          "negativo": "No,no"
+        }
+      },
+      {
+        "type": "ruta",
+        "key": 40,
+        "pregunta": "¿En la noche? Por favor responde Si o No",
+        "respuesta": {
+          "positivo": 41,
+          "negativo": 41
+        },
+        "image": "",
+        "@binario": {
+          "positivo": "Si,si,sí",
+          "negativo": "No,no"
+        }
+      },
+      {
+        "type": "ruta",
+        "key": 41,
+        "pregunta": "Cuando tienes dolor antes del procedimiento médico, ¿Cuánto tiempo crees que te dura ese dolor, Una parte del día? Por favor responde Si o No",
+        "respuesta": {
+          "positivo": 42,
+          "negativo": 42
+        },
+        "image": "",
+        "@binario": {
+          "positivo": "Si,si,sí",
+          "negativo": "No,no"
+        }
+      },
+      {
+        "type": "ruta",
+        "key": 42,
+        "pregunta": "¿Todo el día? Por favor responde Si o No",
+        "respuesta": {
+          "positivo": 43,
+          "negativo": 43
+        },
+        "image": "",
+        "@binario": {
+          "positivo": "Si,si,sí",
+          "negativo": "No,no"
+        }
+      },
+      {
+        "type": "ruta",
+        "key": 43,
+        "pregunta": "¿Más de un día? Por favor responde Si o No",
+        "respuesta": {
+          "positivo": 44,
+          "negativo": 44
+        },
+        "image": "",
+        "@binario": {
+          "positivo": "Si,si,sí",
+          "negativo": "No,no"
+        }
+      },
+      {
+        "type": "ruta",
+        "key": 44,
+        "pregunta": "Ahora me gustaría saber cómo es el dolor que has sentido antes de un procedimiento médico. Por favor escucha y observa los ejemplos. Hay un dolor que se siente como si te quemaras, es decir, en el sitio donde te duele, puede sentirse como si te ardiera la piel, y a veces se siente un poco caliente.  ¿Has sentido este tipo de dolor? Por favor responde Si o No",
+        "respuesta": {
+          "positivo": 45,
+          "negativo": 45
+        },
+        "image": "",
+        "@binario": {
+          "positivo": "Si,si,sí",
+          "negativo": "No,no"
+        }
+      },
+      {
+        "type": "ruta",
+        "key": 45,
+        "pregunta": "Hay otro dolor, que se siente como si nos pincharan en el cuerpo con una aguja. ¿Has sentido este tipo de dolor? Por favor responde Si o No",
+        "respuesta": {
+          "positivo": 46,
+          "negativo": 46
+        },
+        "image": "",
+        "@binario": {
+          "positivo": "Si,si,sí",
+          "negativo": "No,no"
+        }
+      },
+      {
+        "type": "ruta",
+        "key": 46,
+        "pregunta": "A veces pasa que en el sitio donde nos duele, se siente como si algo palpitara por dentro, así como los latidos del corazón. Es decir, se siente como si el dolor se encendiera y se apagara constantemente. ¿Has sentido ese tipo de dolor? Por favor responde Si o No",
+        "respuesta": {
+          "positivo": 47,
+          "negativo": 47
+        },
+        "image": "",
+        "@binario": {
+          "positivo": "Si,si,sí",
+          "negativo": "No,no"
+        }
+      },
+      {
+        "type": "ruta",
+        "key": 90,
+        "pregunta": "Y el otro tipo de dolor, se siente como si nos aplastaran el sitio donde nos duele. Es como tener un gran peso encima en ese sitio. ¿Has sentido ese tipo de dolor? Por favor responde Si o No",
+        "respuesta": {
+          "positivo": 48,
+          "negativo": 48
+        },
+        "image": "",
+        "@binario": {
+          "positivo": "Si,si,sí",
+          "negativo": "No,no"
+        }
+      },
+      {
+        "type": "ruta",
+        "key": 120,
+        "pregunta": "Gracias, me has contado muchas cosas sobre el dolor en tu cuerpo… ¿pero sabes? Cuando tenemos dolor, también hacemos cosas y tenemos sentimientos. Me gustaría conocer esa parte también, así que te haré más preguntas. Vamos a explorar cuáles son tus emociones cuando tienes dolor. Te voy a mostrar cada una de las emociones y tú me dices si la has sentido o no. Esta persona parece enojada. Su cara está roja, frunce el ceño, muestra los dientes. Parece que algo le molesta. ¿Te has sentido así? Por favor responde Si o No",
+        "respuesta": {
+          "positivo": 49,
+          "negativo": 49
+        },
+        "image": "assets/cuerpo/caraenojada.jpg",
+        "@binario": {
+          "positivo": "Si,si,sí",
+          "negativo": "No,no"
+        }
+      }
+    ]
+  }

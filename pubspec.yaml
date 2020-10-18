@@ -27,6 +27,9 @@ dependencies:
   firebase_analytics:
   firebase_auth:
   random_string:
+  http:
+  path_provider:
+  flutter_gifimage:
 
 dev_dependencies:
   flutter_test:
@@ -44,6 +47,10 @@ flutter:
     - assets/pngocean.com.png
     - assets/ajax-loader.gif
     - assets/credentials.json
+    - assets/Config.json
+    - assets/data.json
+    - assets/cuerpo/
+    - assets/Kenito.gif
   # fonts:
   #   - family: Schyler
   #     fonts:

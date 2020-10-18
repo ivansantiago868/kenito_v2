@@ -7,22 +7,22 @@
             "type": "dart"
         },
         {
-            "name": "Android Fisico",
+            "name": "Android Fisico CAM L23",
             "request": "launch",
             "type": "dart",
             "deviceId": "CAM L23"
+        },
+        {
+            "name": "Android Fisico SM A107M",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "SM A107M"
         },
         {
             "name": "Android virtual",
             "request": "launch",
             "type": "dart",
             "deviceId": "Android SDK built for x86"
-        }
-    ],
-    "compounds": [
-        {
-            "name": "All Devices",
-            "configurations": ["Android"],
         }
     ]
 }
