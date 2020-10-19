@@ -59,6 +59,9 @@ class Binario {
   String izq;
   String der;
   Binario({this.izq, this.der});
+
+  Map toJson() => {'izq': izq, 'der': der};
+
   factory Binario.fromJson(Map<String, dynamic> parsedJson) {
     try {
       return Binario(izq: parsedJson['negativo'], der: parsedJson['positivo']);
@@ -154,6 +157,25 @@ class Pregunta {
       this.izq,
       this.der,
       this.binario});
+
+  Map toJson() => {
+        'key': key,
+        'type': type,
+        'pregunta': pregunta,
+        'respuesta': respuesta,
+        'image': image,
+        'binario': binario.toJson(),
+        'izq': izq.toJson(),
+        'der': der.toJson()
+      };
+  Map toJsonDB() => {
+        'key': key,
+        'type': type,
+        'pregunta': pregunta,
+        'respuesta': respuesta,
+        'image': image,
+        'binario': binario.toJson()
+      };
 
   factory Pregunta.fromJson(Map<String, dynamic> parsedJson) {
     try {

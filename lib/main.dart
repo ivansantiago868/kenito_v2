@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:kenito/pages/load_page.dart';
 import 'package:permission/permission.dart';
@@ -35,7 +36,7 @@ class _MyAppState extends State<MyApp> {
     GlobalConfiguration cfg = new GlobalConfiguration();
     cfg.getValue("serial");
     bool status = false;
-    _signInAnonymously();
+    // _signInAnonymously();
     try {
       bool permisos = false;
       bool internet = false;

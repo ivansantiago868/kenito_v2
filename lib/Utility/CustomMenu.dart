@@ -3,6 +3,7 @@ import 'package:kenito/pages/admin/loader_page.dart';
 import 'package:kenito/pages/admin/speech_page.dart';
 import 'package:kenito/pages/admin/bot_page.dart';
 import 'package:kenito/pages/admin/bd_page.dart';
+import 'package:kenito/pages/admin/speech_page_flutter.dart';
 import 'package:kenito/pages/admin/text_speech_page.dart';
 import 'package:kenito/pages/admin/permission_page.dart';
 import 'package:kenito/main.dart';
@@ -43,6 +44,15 @@ class MenuLateral extends StatelessWidget {
                   context,
                   new MaterialPageRoute(
                       builder: (context) => new SpeechPage()));
+            },
+          ),
+          new ListTile(
+            title: Text("DEMO SPEECH TO TEXT V2"),
+            onTap: () {
+              Navigator.push(
+                  context,
+                  new MaterialPageRoute(
+                      builder: (context) => new SpeechPageFlutter()));
             },
           ),
           new ListTile(

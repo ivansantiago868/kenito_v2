@@ -1,17 +1,24 @@
 import 'dart:math';
-
+import 'dart:convert';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:global_configuration/global_configuration.dart';
 import 'package:kenito/controller/arbol.dart';
+import 'package:kenito/controller/bd.dart';
 import 'package:kenito/models/Config.dart';
+import 'package:kenito/models/Respuestas.dart';
 
 class ModuloController {
   Pregunta mensaje_ini;
   ArbolConfig mensaje_bk;
   String error;
   int conteo = 0;
+  GlobalConfiguration config;
+  int contador = 0;
 
   // constructor
   ModuloController({ArbolConfig config, String modulo}) {
+    GlobalConfiguration cfg = new GlobalConfiguration();
+    this.config = cfg;
     mensaje_bk = config;
     asignacionModuloInicial(modulo);
   }
@@ -40,7 +47,18 @@ class ModuloController {
 
   void GetResponseBool(String mesaje) {
     Random random = new Random();
+    var serial = this.config.getValue("serial");
     if (this.mensaje_ini.binario.der.indexOf(mesaje) >= 0) {
+      var rest = new RespuestasModel(
+          serial,
+          true,
+          this.mensaje_bk.page.nombre,
+          this.mensaje_ini.pregunta,
+          jsonEncode(this.mensaje_ini.toJsonDB()),
+          mesaje,
+          contador,
+          jsonEncode(this.mensaje_ini.binario.toJson()));
+      var bd = BD.add(rest);
       switch (this.mensaje_ini.der.type) {
         case "pregunta":
           int keyBuscar = int.parse(this.mensaje_ini.der.respuesta);
@@ -147,6 +165,16 @@ class ModuloController {
       }
       this.error = "";
     } else if (this.mensaje_ini.binario.izq.indexOf(mesaje) >= 0) {
+      var rest = new RespuestasModel(
+          serial,
+          true,
+          this.mensaje_bk.page.nombre,
+          this.mensaje_ini.pregunta,
+          jsonEncode(this.mensaje_ini.toJsonDB()),
+          mesaje,
+          contador,
+          jsonEncode(this.mensaje_ini.binario.toJson()));
+      var bd = BD.add(rest);
       switch (this.mensaje_ini.izq.type) {
         case "pregunta":
           int keyBuscar = int.parse(this.mensaje_ini.izq.respuesta);
@@ -255,6 +283,18 @@ class ModuloController {
     } else {
       this.mensaje_ini = this.mensaje_ini;
       this.error = mensaje_bk.page.exepcion;
+
+      var rest = new RespuestasModel(
+          serial,
+          false,
+          this.mensaje_bk.page.nombre,
+          this.mensaje_ini.pregunta,
+          jsonEncode(this.mensaje_ini.toJsonDB()),
+          mesaje,
+          contador,
+          jsonEncode(this.mensaje_ini.binario.toJson()));
+      var bd = BD.add(rest);
     }
+    contador += 1;
   }
 }

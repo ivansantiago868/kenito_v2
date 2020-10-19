@@ -1,14 +1,18 @@
+import 'dart:convert';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gifimage/flutter_gifimage.dart';
+import 'package:kenito/controller/bd.dart';
 import 'package:kenito/controller/modulos.dart';
 import 'package:kenito/models/Config.dart';
+import 'package:kenito/models/Respuestas.dart';
 import 'package:splashscreen/splashscreen.dart';
 import 'package:global_configuration/global_configuration.dart';
 import 'package:kenito/Utility/CustomButton.dart';
 import 'package:kenito/Utility/CustomMenu.dart';
-import 'package:speech_recognition/speech_recognition.dart';
+import 'package:flutter_speech/flutter_speech.dart';
+// import 'package:speech_recognition/speech_recognition.dart';
 import 'package:kenito/pages/home_page.dart';
 import 'Dart:io';
 import 'package:flutter_dialogflow/dialogflow_v2.dart';
@@ -102,8 +106,8 @@ class _ChatPageState extends State<ChatPage> with TickerProviderStateMixin {
                         alignment: Alignment.center,
                         child: new Text(
                           _speechRecognitionAvailable && !_isListening
-                              ? 'Escuchando...'
-                              : '',
+                              ? ''
+                              : 'Escuchando...',
                           textAlign: TextAlign.center,
                           style: new TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 20.0),
@@ -121,13 +125,6 @@ class _ChatPageState extends State<ChatPage> with TickerProviderStateMixin {
                       },
                       mensaje: "Atras"),
                 ),
-                // Container(
-                //   child: CustomButton(
-                //       onPressed: () {
-                //         start();
-                //       },
-                //       mensaje: "Start"),
-                // )
               ],
             ),
           ),
@@ -193,54 +190,84 @@ class _ChatPageState extends State<ChatPage> with TickerProviderStateMixin {
   void pedirNombre() {}
 
   /****Modulo de Speech To Text sobre los campos  */
-  void txtTospeech() => print('SpeechPage.onCurrentLocale... $transcription');
-
-  void cancel() =>
-      _speech.cancel().then((result) => setState(() => _isListening = result));
-
-  void stop() => _speech.stop().then((result) {
-        setState(() => _isListening = result);
-      });
-
   void activateSpeechRecognizer() {
+    ////////////////speech_recognition//////////////////////////////
+    print('SpeechPage.activateSpeechRecognizer... ');
+    // _speech = new SpeechRecognition();
+    // _speech.setAvailabilityHandler(onSpeechAvailability);
+    // _speech.setCurrentLocaleHandler(onCurrentLocale);
+    // _speech.setRecognitionStartedHandler(onRecognitionStarted);
+    // _speech.setRecognitionResultHandler(onRecognitionResult);
+    // _speech.setRecognitionCompleteHandler(onRecognitionComplete);
+    // _speech.setErrorHandler(errorHandler);
+    // _speech
+    //     .activate()
+    //     .then((res) => setState(() => _speechRecognitionAvailable = res));
+    ////////////////flutter_speech//////////////////////////////
     print('SpeechPage.activateSpeechRecognizer... ');
     _speech = new SpeechRecognition();
     _speech.setAvailabilityHandler(onSpeechAvailability);
-    _speech.setCurrentLocaleHandler(onCurrentLocale);
     _speech.setRecognitionStartedHandler(onRecognitionStarted);
     _speech.setRecognitionResultHandler(onRecognitionResult);
     _speech.setRecognitionCompleteHandler(onRecognitionComplete);
-    //_speech.setErrorHandler(errorHandler);
-    _speech
-        .activate()
-        .then((res) => setState(() => _speechRecognitionAvailable = res));
+    _speech.setErrorHandler(errorHandler);
+    _speech.activate('es_ES').then((res) {
+      setState(() => _speechRecognitionAvailable = res);
+    });
   }
 
-  void start() => _speech.listen(locale: selectedLang.code).then((result) {
-        print('SpeechPage.start => result $result');
+  // void txtTospeech() => print('SpeechPage.onCurrentLocale... $transcription');
+
+  // void cancel() =>
+  //     _speech.cancel().then((result) => setState(() => _isListening = result));
+
+  // void stop() => _speech.stop().then((result) {
+  //       setState(() => _isListening = result);
+  //     });
+  void stop() => _speech.stop().then((_) {
+        setState(() => _isListening = false);
+      });
+  // void start() => _speech.listen(locale: selectedLang.code).then((result) {
+  //       print('SpeechPage.start => result $result');
+  //     });
+  void start() => _speech.activate(selectedLang.code).then((_) {
+        return _speech.listen().then((result) {
+          print('_MyAppState.start => result $result');
+          setState(() {
+            _isListening = result;
+          });
+        });
       });
 
   void onSpeechAvailability(bool result) =>
       setState(() => _speechRecognitionAvailable = result);
 
-  void onCurrentLocale(String locale) {
-    print('SpeechPage.onCurrentLocale... $locale');
-    setState(() => selectedLang = languages.first);
+  // void onCurrentLocale(String locale) {
+  //   print('SpeechPage.onCurrentLocale... $locale');
+  //   setState(() => selectedLang = languages.first);
+  // }
+
+  void onRecognitionStarted() {
+    setState(() => _isListening = true);
   }
 
-  void onRecognitionStarted() => setState(() => _isListening = true);
+  void onRecognitionResult(String text) {
+    print('_MyAppState.onRecognitionResult... $text');
+    setState(() => transcription = text);
+  }
 
-  void onRecognitionResult(String text) => setState(() => transcription = text);
-
-  void onRecognitionComplete() {
+  void onRecognitionComplete(String text) {
+    print('_MyAppState.onRecognitionComplete... $text');
     setState(() => _isListening = false);
-    debugPrint("texto completado en escucha $transcription");
-    if (status) {
+    debugPrint("texto completado en escucha : $text");
+    if (status && text != "") {
       status = false;
-      if (this.ArbolResponce.mensaje_bk.page.bienvenida == _newVoiceText &&
+      if (_newVoiceText
+                  .indexOf(this.ArbolResponce.mensaje_bk.page.bienvenida) >=
+              0 &&
           this.ArbolResponce.mensaje_bk.page.pedir_nombre) {
         Random random = new Random();
-        this.ArbolResponce.mensaje_bk.page.nombre = transcription;
+        this.ArbolResponce.mensaje_bk.page.nombre = text;
         this.ArbolResponce.mensaje_bk.page.pedir_nombre = false;
         this.ArbolResponce.asignacionModuloInicial(
             this.ArbolResponce.mensaje_bk.page.orden[0].modulo);
@@ -267,33 +294,32 @@ class _ChatPageState extends State<ChatPage> with TickerProviderStateMixin {
       } else {
         switch (this.ArbolResponce.mensaje_ini.type) {
           case "image":
-            this.ArbolResponce.GetResponseBool(transcription);
+            this.ArbolResponce.GetResponseBool(text);
             _newVoiceText =
                 ArbolResponce.error + ArbolResponce.mensaje_ini.pregunta;
             this.image = "";
             if (ArbolResponce.mensaje_ini.type == "respuesta") {
               status = true;
-              onRecognitionComplete();
+              onRecognitionComplete(text);
             } else {
               _speak();
             }
             break;
           case "bool":
-            this.ArbolResponce.GetResponseBool(transcription);
+            this.ArbolResponce.GetResponseBool(text);
             _newVoiceText =
                 ArbolResponce.error + ArbolResponce.mensaje_ini.pregunta;
             if (ArbolResponce.mensaje_ini.type == "respuesta") {
               status = true;
-              onRecognitionComplete();
+              onRecognitionComplete(text);
             } else {
               _speak();
             }
-
             break;
           case "pregunta":
             break;
           case "boolmulti":
-            this.ArbolResponce.GetResponseBool(transcription);
+            this.ArbolResponce.GetResponseBool(text);
             _newVoiceText =
                 ArbolResponce.error + ArbolResponce.mensaje_ini.pregunta;
             _speak();
@@ -324,28 +350,42 @@ class _ChatPageState extends State<ChatPage> with TickerProviderStateMixin {
                     der: new Pregunta());
                 ArbolResponce.mensaje_ini = pre;
                 _newVoiceText = pre.pregunta;
-                transcription = "";
-                status = true;
+                text = "";
                 _speak();
                 break;
               default:
             }
             break;
           case "dialogflow":
-            _handleSubmitted(transcription);
+            _handleSubmitted(text);
             debugPrint("respuesta" + respuesta);
-            transcription = "";
+            text = "";
             break;
           default:
         }
       }
     }
+    if (text == "") {
+      debugPrint("texto completado en escucha esta en limpio : $text");
+    }
   }
 
   void errorHandler() {
+    debugPrint("Error");
+    GlobalConfiguration cfg = new GlobalConfiguration();
+    var serial = cfg.getValue("serial");
+    if (this.ArbolResponce.mensaje_bk.page.pedir_nombre) {
+      _newVoiceText = this.ArbolResponce.mensaje_bk.page.exepcion +
+          this.ArbolResponce.mensaje_bk.page.bienvenida;
+    } else {
+      _newVoiceText = this.ArbolResponce.mensaje_bk.page.exepcion +
+          this.ArbolResponce.mensaje_ini.pregunta;
+    }
     activateSpeechRecognizer();
+    _speak();
   }
 
+  /****Modulo de DialogFlow sobre los campos  */
   void _handleSubmitted(String text) {
     if (text != "") {
       _textController.clear();

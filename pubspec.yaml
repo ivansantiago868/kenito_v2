@@ -16,6 +16,7 @@ dependencies:
   splashscreen:
   permission: 
   speech_recognition: 
+  flutter_speech:
   flutter_tts : 
   flutter_dialogflow: 
   cupertino_icons: 

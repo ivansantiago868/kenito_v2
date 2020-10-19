@@ -36,13 +36,17 @@ class ArbolConfig {
   }
 
   Future<bool> serializarString(jsonPage) async {
-    this.jsonPage = jsonPage;
-    final jsonResponse = json.decode(jsonPage);
-    Config page = new Config.fromJson(jsonResponse);
-    this.page = page;
-    this.load = true;
-    print('ArbolConfig Lectura');
-    return true;
+    try {
+      this.jsonPage = jsonPage;
+      final jsonResponse = json.decode(jsonPage);
+      Config page = new Config.fromJson(jsonResponse);
+      this.page = page;
+      this.load = true;
+      print('ArbolConfig Lectura');
+      return true;
+    } catch (e) {
+      print(e.toString());
+    }
   }
 }
 
