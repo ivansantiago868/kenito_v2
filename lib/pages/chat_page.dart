@@ -46,6 +46,7 @@ class _ChatPageState extends State<ChatPage> with TickerProviderStateMixin {
   bool _speechRecognitionAvailable = false;
   bool _isListening = false;
   String image;
+  double tamano = 300;
   FlutterTts flutterTts;
   String _newVoiceText;
 
@@ -91,10 +92,12 @@ class _ChatPageState extends State<ChatPage> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     // La aplicación esta en ejecución
     return new Scaffold(
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.white,
         drawer: MenuLateral(),
         body: new Center(
           child: Container(
+            margin: const EdgeInsets.only(
+                top: 70.0, right: 30, left: 30, bottom: 30),
             color: Colors.transparent,
             child: Column(
               mainAxisSize: MainAxisSize.max,
@@ -115,8 +118,8 @@ class _ChatPageState extends State<ChatPage> with TickerProviderStateMixin {
                 Container(
                   child: CustomButton(
                       onPressed: () {
-                        // cancel();
-                        // stop();
+                        stop();
+                        _speech.stop();
                         Navigator.push(
                             context,
                             new MaterialPageRoute(
@@ -141,19 +144,12 @@ class _ChatPageState extends State<ChatPage> with TickerProviderStateMixin {
             controller: controller,
             image: AssetImage("assets/Kenito.gif"),
           ),
-          // Container(
-          //     width: MediaQuery.of(context).copyWith().size.width,
-          //     height: 250,
-          //     decoration: BoxDecoration(
-          //         image: DecorationImage(
-          //             image: AssetImage("assets/pngocean.com.png"),
-          //             fit: BoxFit.cover))),
           Container(
               width: MediaQuery.of(context).copyWith().size.width, height: 50),
           new Container(
               padding: const EdgeInsets.all(20),
-              width: 100,
-              height: 100,
+              width: MediaQuery.of(context).copyWith().size.width,
+              height: tamano,
               decoration: BoxDecoration(
                 image: DecorationImage(
                     image: AssetImage(image), fit: BoxFit.cover),
@@ -171,15 +167,18 @@ class _ChatPageState extends State<ChatPage> with TickerProviderStateMixin {
             controller: controller,
             image: AssetImage("assets/Kenito.gif"),
           ),
-          // Container(
-          //     width: MediaQuery.of(context).copyWith().size.width,
-          //     height: 400,
-          //     decoration: BoxDecoration(
-          //         image: DecorationImage(
-          //             image: AssetImage("assets/pngocean.com.png"),
-          //             fit: BoxFit.cover))),
           Container(
               width: MediaQuery.of(context).copyWith().size.width, height: 50),
+          // new Container(
+          //     padding: const EdgeInsets.all(20),
+          //     width: MediaQuery.of(context).copyWith().size.width,
+          //     height: tamano,
+          //     decoration: BoxDecoration(
+          //       image: DecorationImage(
+          //           // image: AssetImage("assets/cuerpo/carasdolor.jpg"),
+          //           image: AssetImage("assets/cuerpo/cabeza.jpg"),
+          //           fit: BoxFit.cover),
+          //     )),
           Container(
               width: MediaQuery.of(context).copyWith().size.width, height: 10)
         ],
@@ -258,6 +257,7 @@ class _ChatPageState extends State<ChatPage> with TickerProviderStateMixin {
 
   void onRecognitionComplete(String text) {
     print('_MyAppState.onRecognitionComplete... $text');
+    tamano = 300;
     setState(() => _isListening = false);
     debugPrint("texto completado en escucha : $text");
     if (status && text != "") {
@@ -282,6 +282,9 @@ class _ChatPageState extends State<ChatPage> with TickerProviderStateMixin {
             break;
           case "image":
             this.image = this.ArbolResponce.mensaje_ini.image;
+            if (this.ArbolResponce.mensaje_ini.image.indexOf("Large") >= 0) {
+              tamano = 150;
+            }
             _newVoiceText = this.ArbolResponce.mensaje_ini.pregunta;
             break;
           case "bool":
@@ -301,6 +304,12 @@ class _ChatPageState extends State<ChatPage> with TickerProviderStateMixin {
             if (ArbolResponce.mensaje_ini.type == "respuesta") {
               status = true;
               onRecognitionComplete(text);
+            } else if (ArbolResponce.mensaje_ini.type == "image") {
+              if (this.ArbolResponce.mensaje_ini.image.indexOf("Large") >= 0) {
+                tamano = 150;
+              }
+              this.image = ArbolResponce.mensaje_ini.image;
+              _speak();
             } else {
               _speak();
             }
@@ -312,6 +321,12 @@ class _ChatPageState extends State<ChatPage> with TickerProviderStateMixin {
             if (ArbolResponce.mensaje_ini.type == "respuesta") {
               status = true;
               onRecognitionComplete(text);
+            } else if (ArbolResponce.mensaje_ini.type == "image") {
+              if (this.ArbolResponce.mensaje_ini.image.indexOf("Large") >= 0) {
+                tamano = 150;
+              }
+              this.image = ArbolResponce.mensaje_ini.image;
+              _speak();
             } else {
               _speak();
             }

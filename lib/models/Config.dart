@@ -9,6 +9,7 @@ class Config {
   String nombre;
   String bienvenida;
   bool pedir_nombre;
+  int porcentaje;
   List<Orden> orden;
   Pregunta educacion;
   Pregunta dolor;
@@ -20,6 +21,7 @@ class Config {
       this.exepcion,
       this.nombre,
       this.pedir_nombre,
+      this.porcentaje,
       this.bienvenida,
       this.gracias,
       this.orden,
@@ -42,6 +44,7 @@ class Config {
           gracias: parsedJson['gracias'],
           nombre: parsedJson['nombre'],
           pedir_nombre: parsedJson['pedir_nombre'],
+          porcentaje: parsedJson['porcentaje'],
           bienvenida: parsedJson['bienvenida'],
           exepcion: parsedJson['exepcion'],
           orden: data,

@@ -1,11 +1,11 @@
 [
   {
     "type": "ruta",
-    "key": 120,
+    "key": 86,
     "pregunta": "Me contaron que tienes dolor mientras estas en el hospital y te estan haciendo un procedimiento médico. Yo soy experto cuando pasa eso, pero para entenderte mejor y darle información a tus médicos, te voy a hacer más preguntas sobre este dolor. Así sabremos qué es lo que pasa en tu cuerpo. Por favor escucha y observa con mucha atención para que yo pueda entender lo que sientes. Te voy a mostrar unas imágenes de las partes del cuerpo, y me gustaría que en cada una de ellas, tú me digas si has tenido dolor cuando estas en un procedimiento médico. ¿Te ha dolido la cabeza? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 10,
-      "negativo": 1
+      "positivo": 96,
+      "negativo": 87
     },
     "image": "assets/cuerpo/cabeza.jpg",
     "@binario": {
@@ -15,11 +15,11 @@
   },
   {
     "type": "ruta",
-    "key": 1,
+    "key": 87,
     "pregunta": "¿Te ha dolido el Cuello y los Hombros? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 11,
-      "negativo": 2
+      "positivo": 97,
+      "negativo": 88
     },
     "image": "assets/cuerpo/cuello.jpg",
     "@binario": {
@@ -29,11 +29,11 @@
   },
   {
     "type": "ruta",
-    "key": 2,
+    "key": 88,
     "pregunta": "¿Te ha dolido el Brazo? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 12,
-      "negativo": 3
+      "positivo": 98,
+      "negativo": 89
     },
     "image": "assets/cuerpo/brazo.jpg",
     "@binario": {
@@ -43,11 +43,11 @@
   },
   {
     "type": "ruta",
-    "key": 3,
+    "key": 89,
     "pregunta": "¿Te ha dolido el Antebrazo? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 13,
-      "negativo": 4
+      "positivo": 99,
+      "negativo": 90
     },
     "image": "assets/cuerpo/antebrazo.jpg",
     "@binario": {
@@ -57,11 +57,11 @@
   },
   {
     "type": "ruta",
-    "key": 4,
+    "key": 90,
     "pregunta": "¿Te ha dolido el Pecho? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 14,
-      "negativo": 5
+      "positivo": 100,
+      "negativo": 91
     },
     "image": "assets/cuerpo/pecho.jpg",
     "@binario": {
@@ -71,11 +71,11 @@
   },
   {
     "type": "ruta",
-    "key": 5,
+    "key": 91,
     "pregunta": "¿Te ha dolido el Estómago? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 15,
-      "negativo": 6
+      "positivo": 101,
+      "negativo": 92
     },
     "image": "assets/cuerpo/estomago.jpg",
     "@binario": {
@@ -85,11 +85,11 @@
   },
   {
     "type": "ruta",
-    "key": 6,
+    "key": 92,
     "pregunta": "¿Te han dolido las Caderas? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 16,
-      "negativo": 7
+      "positivo": 102,
+      "negativo": 93
     },
     "image": "assets/cuerpo/caderas.jpg",
     "@binario": {
@@ -99,11 +99,11 @@
   },
   {
     "type": "ruta",
-    "key": 7,
+    "key": 93,
     "pregunta": "¿Te han dolido las Piernas? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 17,
-      "negativo": 8
+      "positivo": 103,
+      "negativo": 94
     },
     "image": "assets/cuerpo/piernas.jpg",
     "@binario": {
@@ -113,11 +113,11 @@
   },
   {
     "type": "ruta",
-    "key": 8,
+    "key": 94,
     "pregunta": "¿Te han dolido las Manos? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 18,
-      "negativo": 9
+      "positivo": 104,
+      "negativo": 95
     },
     "image": "assets/cuerpo/manos.jpg",
     "@binario": {
@@ -127,11 +127,11 @@
   },
   {
     "type": "ruta",
-    "key": 9,
+    "key": 95,
     "pregunta": "¿Te han dolido los Pies? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 19,
-      "negativo": 20
+      "positivo": 105,
+      "negativo": 106
     },
     "image": "assets/cuerpo/pies.jpg",
     "@binario": {
@@ -141,11 +141,11 @@
   },
   {
     "type": "ruta",
-    "key": 10,
+    "key": 96,
     "pregunta": "Vamos a confirmar. Me dijiste que antes de un procedimiento médico, te ha dolido en: la Cabeza. Por favor responde con la palabra correcto.",
     "respuesta": {
-      "positivo": 21,
-      "negativo": 21
+      "positivo": 107,
+      "negativo": 107
     },
     "image": "",
     "@binario": {
@@ -155,11 +155,11 @@
   },
   {
     "type": "ruta",
-    "key": 11,
+    "key": 97,
     "pregunta": "Vamos a confirmar. Me dijiste que antes de un procedimiento médico, te ha dolido en cuello y hombros. Por favor responde con la palabra correcto.",
     "respuesta": {
-      "positivo": 22,
-      "negativo": 22
+      "positivo": 108,
+      "negativo": 108
     },
     "image": "",
     "@binario": {
@@ -169,11 +169,11 @@
   },
   {
     "type": "ruta",
-    "key": 12,
+    "key": 98,
     "pregunta": "Vamos a confirmar. Me dijiste que antes de un procedimiento médico, te ha dolido el brazo. Por favor responde con la palabra correcto.",
     "respuesta": {
-      "positivo": 23,
-      "negativo": 23
+      "positivo": 109,
+      "negativo": 109
     },
     "image": "",
     "@binario": {
@@ -183,11 +183,11 @@
   },
   {
     "type": "ruta",
-    "key": 13,
+    "key": 99,
     "pregunta": "Vamos a confirmar. Me dijiste que antes de un procedimiento médico, te ha dolido el antebrazo. Por favor responde con la palabra correcto.",
     "respuesta": {
-      "positivo": 24,
-      "negativo": 24
+      "positivo": 110,
+      "negativo": 110
     },
     "image": "",
     "@binario": {
@@ -197,11 +197,11 @@
   },
   {
     "type": "ruta",
-    "key": 14,
+    "key": 100,
     "pregunta": "Vamos a confirmar. Me dijiste que antes de un procedimiento médico, te ha dolido el pecho. Por favor responde con la palabra correcto.",
     "respuesta": {
-      "positivo": 25,
-      "negativo": 25
+      "positivo": 111,
+      "negativo": 111
     },
     "image": "",
     "@binario": {
@@ -211,11 +211,11 @@
   },
   {
     "type": "ruta",
-    "key": 15,
+    "key": 101,
     "pregunta": "Vamos a confirmar. Me dijiste que antes de un procedimiento médico, te ha dolido el estómago. Por favor responde con la palabra correcto.",
     "respuesta": {
-      "positivo": 26,
-      "negativo": 26
+      "positivo": 112,
+      "negativo": 112
     },
     "image": "",
     "@binario": {
@@ -225,11 +225,11 @@
   },
   {
     "type": "ruta",
-    "key": 16,
+    "key": 102,
     "pregunta": "Vamos a confirmar. Me dijiste que antes de un procedimiento médico, te han dolido las caderas. Por favor responde con la palabra correcto.",
     "respuesta": {
-      "positivo": 27,
-      "negativo": 27
+      "positivo": 113,
+      "negativo": 113
     },
     "image": "",
     "@binario": {
@@ -239,11 +239,11 @@
   },
   {
     "type": "ruta",
-    "key": 17,
+    "key": 103,
     "pregunta": "Vamos a confirmar. Me dijiste que antes de un procedimiento médico, te han dolido las piernas. Por favor responde con la palabra correcto.",
     "respuesta": {
-      "positivo": 28,
-      "negativo": 28
+      "positivo": 114,
+      "negativo": 114
     },
     "image": "",
     "@binario": {
@@ -253,11 +253,11 @@
   },
   {
     "type": "ruta",
-    "key": 18,
+    "key": 104,
     "pregunta": "Vamos a confirmar. Me dijiste que antes de un procedimiento médico, te han dolido las manos. Por favor responde con la palabra correcto.",
     "respuesta": {
-      "positivo": 29,
-      "negativo": 29
+      "positivo": 115,
+      "negativo": 115
     },
     "image": "",
     "@binario": {
@@ -267,11 +267,11 @@
   },
   {
     "type": "ruta",
-    "key": 19,
+    "key": 105,
     "pregunta": "Vamos a confirmar. Me dijiste que antes de un procedimiento médico, te han dolido los pies. Por favor responde con la palabra correcto.",
     "respuesta": {
-      "positivo": 30,
-      "negativo": 30
+      "positivo": 116,
+      "negativo": 116
     },
     "image": "",
     "@binario": {
@@ -281,11 +281,11 @@
   },
   {
     "type": "ruta",
-    "key": 20,
+    "key": 106,
     "pregunta": "Ahora veamos qué tan fuerte es ese dolor, Por favor responde correcto.",
     "respuesta": {
-      "positivo": 31,
-      "negativo": 31
+      "positivo": 117,
+      "negativo": 117
     },
     "image": "",
     "@binario": {
@@ -295,11 +295,11 @@
   },
   {
     "type": "ruta",
-    "key": 21,
-    "pregunta": "Ahora veamos qué tan fuerte es ese dolor en la Cabeza, Por favor, observa las imágenes y busca cuál es la cara que más se parece al dolor que tú has tenido. Cuando la tengas, dime el color que está debajo de la cara.",
+    "key": 107,
+    "pregunta": "Ahora veamos qué tan fuerte es ese dolor en la Cabeza, Por favor, observa la imagen y busca cuál es la cara que más se parece al dolor que tú has sentido. Cuando la tengas, dime el color que tiene la cara.",
     "respuesta": {
-      "positivo": 31,
-      "negativo": 31
+      "positivo": 117,
+      "negativo": 117
     },
     "image": "assets/cuerpo/carasdolor.jpg",
     "@binario": {
@@ -309,11 +309,11 @@
   },
   {
     "type": "ruta",
-    "key": 22,
-    "pregunta": "Ahora veamos qué tan fuerte es ese dolor en la Cuello y Hombros, Por favor, observa las imágenes y busca cuál es la cara que más se parece al dolor que tú has tenido. Cuando la tengas, dime el color que está debajo de la cara.",
+    "key": 108,
+    "pregunta": "Ahora veamos qué tan fuerte es ese dolor en la Cuello y Hombros, Por favor, observa la imagen y busca cuál es la cara que más se parece al dolor que tú has sentido. Cuando la tengas, dime el color que tiene la cara.",
     "respuesta": {
-      "positivo": 31,
-      "negativo": 31
+      "positivo": 117,
+      "negativo": 117
     },
     "image": "assets/cuerpo/carasdolor.jpg",
     "@binario": {
@@ -323,11 +323,11 @@
   },
   {
     "type": "ruta",
-    "key": 23,
-    "pregunta": "Ahora veamos qué tan fuerte es ese dolor en la Brazo, Por favor, observa las imágenes y busca cuál es la cara que más se parece al dolor que tú has tenido. Cuando la tengas, dime el color que está debajo de la cara",
+    "key": 109,
+    "pregunta": "Ahora veamos qué tan fuerte es ese dolor en la Brazo, Por favor, observa la imagen y busca cuál es la cara que más se parece al dolor que tú has sentido. Cuando la tengas, dime el color que tiene la cara.",
     "respuesta": {
-      "positivo": 31,
-      "negativo": 31
+      "positivo": 117,
+      "negativo": 117
     },
     "image": "assets/cuerpo/carasdolor.jpg",
     "@binario": {
@@ -337,11 +337,11 @@
   },
   {
     "type": "ruta",
-    "key": 24,
-    "pregunta": "Ahora veamos qué tan fuerte es ese dolor en la Antebrazo, Por favor, observa las imágenes y busca cuál es la cara que más se parece al dolor que tú has tenido. Cuando la tengas, dime el color que está debajo de la cara.",
+    "key": 110,
+    "pregunta": "Ahora veamos qué tan fuerte es ese dolor en la Antebrazo, Por favor, observa la imagen y busca cuál es la cara que más se parece al dolor que tú has sentido. Cuando la tengas, dime el color que tiene la cara.",
     "respuesta": {
-      "positivo": 31,
-      "negativo": 31
+      "positivo": 117,
+      "negativo": 117
     },
     "image": "assets/cuerpo/carasdolor.jpg",
     "@binario": {
@@ -351,11 +351,11 @@
   },
   {
     "type": "ruta",
-    "key": 25,
-    "pregunta": "Ahora veamos qué tan fuerte es ese dolor en el Pecho, Por favor, observa las imágenes y busca cuál es la cara que más se parece al dolor que tú has tenido. Cuando la tengas, dime el color que está debajo de la cara.",
+    "key": 111,
+    "pregunta": "Ahora veamos qué tan fuerte es ese dolor en el Pecho, Por favor, observa la imagen y busca cuál es la cara que más se parece al dolor que tú has sentido. Cuando la tengas, dime el color que tiene la cara.",
     "respuesta": {
-      "positivo": 31,
-      "negativo": 31
+      "positivo": 117,
+      "negativo": 117
     },
     "image": "assets/cuerpo/carasdolor.jpg",
     "@binario": {
@@ -365,11 +365,11 @@
   },
   {
     "type": "ruta",
-    "key": 26,
-    "pregunta": "Ahora veamos qué tan fuerte es ese dolor en el Estómago, Por favor, observa las imágenes y busca cuál es la cara que más se parece al dolor que tú has tenido. Cuando la tengas, dime el color que está debajo de la cara.",
+    "key": 112,
+    "pregunta": "Ahora veamos qué tan fuerte es ese dolor en el Estómago, Por favor, observa la imagen y busca cuál es la cara que más se parece al dolor que tú has sentido. Cuando la tengas, dime el color que tiene la cara.",
     "respuesta": {
-      "positivo": 31,
-      "negativo": 31
+      "positivo": 117,
+      "negativo": 117
     },
     "image": "assets/cuerpo/carasdolor.jpg",
     "@binario": {
@@ -379,11 +379,11 @@
   },
   {
     "type": "ruta",
-    "key": 27,
-    "pregunta": "Ahora veamos qué tan fuerte es ese dolor en las caderas, Por favor, observa las imágenes y busca cuál es la cara que más se parece al dolor que tú has tenido. Cuando la tengas, dime el color que está debajo de la cara.",
+    "key": 113,
+    "pregunta": "Ahora veamos qué tan fuerte es ese dolor en las caderas, Por favor, observa la imagen y busca cuál es la cara que más se parece al dolor que tú has sentido. Cuando la tengas, dime el color que tiene la cara.",
     "respuesta": {
-      "positivo": 31,
-      "negativo": 31
+      "positivo": 117,
+      "negativo": 117
     },
     "image": "assets/cuerpo/carasdolor.jpg",
     "@binario": {
@@ -393,11 +393,11 @@
   },
   {
     "type": "ruta",
-    "key": 28,
-    "pregunta": "Ahora veamos qué tan fuerte es ese dolor en las Piernas, Por favor, observa las imágenes y busca cuál es la cara que más se parece al dolor que tú has tenido. Cuando la tengas, dime el color que está debajo de la cara. ",
+    "key": 114,
+    "pregunta": "Ahora veamos qué tan fuerte es ese dolor en las Piernas, Por favor, observa la imagen y busca cuál es la cara que más se parece al dolor que tú has sentido. Cuando la tengas, dime el color que tiene la cara. ",
     "respuesta": {
-      "positivo": 31,
-      "negativo": 31
+      "positivo": 117,
+      "negativo": 117
     },
     "image": "assets/cuerpo/carasdolor.jpg",
     "@binario": {
@@ -407,11 +407,11 @@
   },
   {
     "type": "ruta",
-    "key": 29,
-    "pregunta": "Ahora veamos qué tan fuerte es ese dolor en las Manos, Por favor, observa las imágenes y busca cuál es la cara que más se parece al dolor que tú has tenido. Cuando la tengas, dime el color que está debajo de la cara.",
+    "key": 115,
+    "pregunta": "Ahora veamos qué tan fuerte es ese dolor en las Manos, Por favor, observa la imagen y busca cuál es la cara que más se parece al dolor que tú has sentido. Cuando la tengas, dime el color que tiene la cara.",
     "respuesta": {
-      "positivo": 31,
-      "negativo": 31
+      "positivo": 117,
+      "negativo": 117
     },
     "image": "assets/cuerpo/carasdolor.jpg",
     "@binario": {
@@ -421,11 +421,11 @@
   },
   {
     "type": "ruta",
-    "key": 30,
-    "pregunta": "Ahora veamos qué tan fuerte es ese dolor en los Pies, Por favor, observa las imágenes y busca cuál es la cara que más se parece al dolor que tú has tenido. Cuando la tengas, dime el color que está debajo de la cara.",
+    "key": 116,
+    "pregunta": "Ahora veamos qué tan fuerte es ese dolor en los Pies, Por favor, observa la imagen y busca cuál es la cara que más se parece al dolor que tú has sentido. Cuando la tengas, dime el color que tiene la cara.",
     "respuesta": {
-      "positivo": 31,
-      "negativo": 31
+      "positivo": 117,
+      "negativo": 117
     },
     "image": "assets/cuerpo/carasdolor.jpg",
     "@binario": {
@@ -435,11 +435,11 @@
   },
   {
     "type": "ruta",
-    "key": 31,
+    "key": 117,
     "pregunta": "Es importante saber un poco más del dolor que sientes cuando te están realizando un procedimiento médico. Por favor dime ¿en qué momento aparece el dolor que tienes cuando te están realizando el procedimiento médico es, Al inicio del procedimiento? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 32,
-      "negativo": 32
+      "positivo": 118,
+      "negativo": 118
     },
     "image": "",
     "@binario": {
@@ -449,11 +449,11 @@
   },
   {
     "type": "ruta",
-    "key": 32,
+    "key": 118,
     "pregunta": "¿En medio del procedimiento? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 33,
-      "negativo": 33
+      "positivo": 119,
+      "negativo": 119
     },
     "image": "",
     "@binario": {
@@ -463,11 +463,11 @@
   },
   {
     "type": "ruta",
-    "key": 33,
+    "key": 119,
     "pregunta": "¿Al final del procedimiento? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 34,
-      "negativo": 34
+      "positivo": 120,
+      "negativo": 120
     },
     "image": "",
     "@binario": {
@@ -477,11 +477,11 @@
   },
   {
     "type": "ruta",
-    "key": 34,
+    "key": 120,
     "pregunta": "Ahora por favor dime ¿en qué momento termina ese dolor, En medio del procedimiento? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 35,
-      "negativo": 35
+      "positivo": 121,
+      "negativo": 121
     },
     "image": "",
     "@binario": {
@@ -491,11 +491,11 @@
   },
   {
     "type": "ruta",
-    "key": 35,
+    "key": 121,
     "pregunta": "¿Al terminar el procedimiento? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 36,
-      "negativo": 36
+      "positivo": 122,
+      "negativo": 122
     },
     "image": "",
     "@binario": {
@@ -505,11 +505,11 @@
   },
   {
     "type": "ruta",
-    "key": 36,
+    "key": 122,
     "pregunta": "¿Tiempo después de terminar el procedimiento? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 37,
-      "negativo": 37
+      "positivo": 123,
+      "negativo": 123
     },
     "image": "",
     "@binario": {
@@ -519,11 +519,11 @@
   },
   {
     "type": "ruta",
-    "key": 37,
+    "key": 123,
     "pregunta": "Ahora me gustaría saber cómo es el dolor que has sentido durante un procedimiento médico. Por favor escucha los ejemplos. Hay un dolor que se siente como si te quemaras, es decir, en el sitio donde te duele, puede sentirse como si te ardiera la piel, y a veces se siente un poco caliente.  ¿Has sentido este tipo de dolor? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 38,
-      "negativo": 38
+      "positivo": 124,
+      "negativo": 124
     },
     "image": "",
     "@binario": {
@@ -533,11 +533,11 @@
   },
   {
     "type": "ruta",
-    "key": 38,
+    "key": 124,
     "pregunta": "Hay otro dolor, que se siente como si nos pincharan en el cuerpo con una aguja. ¿Has sentido este tipo de dolor? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 39,
-      "negativo": 39
+      "positivo": 125,
+      "negativo": 125
     },
     "image": "",
     "@binario": {
@@ -547,11 +547,11 @@
   },
   {
     "type": "ruta",
-    "key": 39,
+    "key": 125,
     "pregunta": "A veces pasa que en el sitio donde nos duele, se siente como si algo palpitara por dentro, así como los latidos del corazón. Es decir, se siente como si el dolor se encendiera y se apagara constantemente. ¿Has sentido ese tipo de dolor? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 40,
-      "negativo": 40
+      "positivo": 126,
+      "negativo": 126
     },
     "image": "",
     "@binario": {
@@ -561,11 +561,11 @@
   },
   {
     "type": "ruta",
-    "key": 40,
+    "key": 126,
     "pregunta": "Y el otro tipo de dolor, se siente como si nos aplastaran el sitio donde nos duele. Es como tener un gran peso encima en ese sitio. ¿Has sentido ese tipo de dolor? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 41,
-      "negativo": 41
+      "positivo": 127,
+      "negativo": 127
     },
     "image": "",
     "@binario": {
@@ -575,11 +575,11 @@
   },
   {
     "type": "ruta",
-    "key": 41,
+    "key": 127,
     "pregunta": "Gracias, me has contado muchas cosas sobre el dolor en tu cuerpo… ¿pero sabes? Cuando tenemos dolor, también hacemos cosas y tenemos sentimientos. Me gustaría conocer esa parte también, así que te haré más preguntas. Vamos a explorar cuáles son tus emociones cuando tienes dolor durante un procedimiento médico. Te voy a mostrar cada una de las emociones y tú me dices si la has sentido o no. Esta persona parece enojada. Su cara está roja, frunce el ceño, muestra los dientes. Parece que algo le molesta. ¿Te has sentido así? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 42,
-      "negativo": 42
+      "positivo": 128,
+      "negativo": 128
     },
     "image": "assets/cuerpo/caraenojada.jpg",
     "@binario": {
@@ -589,11 +589,11 @@
   },
   {
     "type": "ruta",
-    "key": 42,
+    "key": 128,
     "pregunta": "Esta persona parece triste. No tiene ganas de hacer nada, prefiere no tener compañía. Parece que extraña algo que ya no tiene.¿Te has sentido así? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 43,
-      "negativo": 43
+      "positivo": 129,
+      "negativo": 129
     },
     "image": "assets/cuerpo/caratriste.jpg",
     "@binario": {
@@ -603,11 +603,11 @@
   },
   {
     "type": "ruta",
-    "key": 43,
+    "key": 129,
     "pregunta": "Esta persona parece que tiene miedo, algo le asusta. Siente como si su cuerpo se hiciera más pequeño, y cree que no puede hacer lo que debe hacer o lo que le piden que haga. ¿Te has sentido así? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 44,
-      "negativo": 44
+      "positivo": 130,
+      "negativo": 130
     },
     "image": "assets/cuerpo/caraasustada.jpg",
     "@binario": {
@@ -617,11 +617,11 @@
   },
   {
     "type": "ruta",
-    "key": 44,
+    "key": 130,
     "pregunta": "Esta persona parece que está feliz, alegre, salta, baila, juega, tiene ganas de hacer cosas con otras personas, de reír con ellos. ¿Te has sentido así? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 45,
-      "negativo": 45
+      "positivo": 131,
+      "negativo": 131
     },
     "image": "assets/cuerpo/carafeliz.jpg",
     "@binario": {
@@ -631,11 +631,11 @@
   },
   {
     "type": "ruta",
-    "key": 45,
+    "key": 131,
     "pregunta": "Como has dicho que tienes dolor cuando te estàn realizando un procedimiento médico, quisiera saber qué haces cuando te sientes con enojo por ese dolor. ¿Pides ayuda? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 46,
-      "negativo": 46
+      "positivo": 132,
+      "negativo": 132
     },
     "image": "",
     "@binario": {
@@ -645,11 +645,11 @@
   },
   {
     "type": "ruta",
-    "key": 46,
+    "key": 132,
     "pregunta": "¿Prefieres estar sin compañía? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 47,
-      "negativo": 47
+      "positivo": 133,
+      "negativo": 133
     },
     "image": "",
     "@binario": {
@@ -659,11 +659,11 @@
   },
   {
     "type": "ruta",
-    "key": 47,
+    "key": 133,
     "pregunta": "¿Rompes o tiras cosas? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 48,
-      "negativo": 48
+      "positivo": 134,
+      "negativo": 134
     },
     "image": "",
     "@binario": {
@@ -673,11 +673,11 @@
   },
   {
     "type": "ruta",
-    "key": 48,
+    "key": 134,
     "pregunta": "¿Gritas? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 49,
-      "negativo": 49
+      "positivo": 135,
+      "negativo": 135
     },
     "image": "",
     "@binario": {
@@ -687,11 +687,11 @@
   },
   {
     "type": "ruta",
-    "key": 49,
+    "key": 135,
     "pregunta": "¿Haces algo para respirar mejor? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 50,
-      "negativo": 50
+      "positivo": 136,
+      "negativo": 136
     },
     "image": "",
     "@binario": {
@@ -701,11 +701,11 @@
   },
   {
     "type": "ruta",
-    "key": 50,
+    "key": 136,
     "pregunta": "Como has dicho que tienes dolor cuando estás en un procedimiento médico, quisiera saber qué haces cuando te sientes triste por ese dolor. ¿Lloras? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 51,
-      "negativo": 51
+      "positivo": 137,
+      "negativo": 137
     },
     "image": "",
     "@binario": {
@@ -715,11 +715,11 @@
   },
   {
     "type": "ruta",
-    "key": 51,
+    "key": 137,
     "pregunta": "¿Le cuentas a alguien que estás triste? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 52,
-      "negativo": 52
+      "positivo": 138,
+      "negativo": 138
     },
     "image": "",
     "@binario": {
@@ -729,11 +729,11 @@
   },
   {
     "type": "ruta",
-    "key": 52,
+    "key": 138,
     "pregunta": "¿Te distraes jugando o viendo televisión? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 53,
-      "negativo": 53
+      "positivo": 139,
+      "negativo": 139
     },
     "image": "",
     "@binario": {
@@ -743,11 +743,11 @@
   },
   {
     "type": "ruta",
-    "key": 53,
+    "key": 139,
     "pregunta": "¿Prefieres quedarte callado mientras estás triste? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 54,
-      "negativo": 54
+      "positivo": 140,
+      "negativo": 140
     },
     "image": "",
     "@binario": {
@@ -757,11 +757,11 @@
   },
   {
     "type": "ruta",
-    "key": 54,
+    "key": 140,
     "pregunta": "Como has dicho que tienes dolor durante un procedimiento médico, quisiera saber qué haces cuando te sientes con miedo por ese dolor. ¿Lloras? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 55,
-      "negativo": 55
+      "positivo": 141,
+      "negativo": 141
     },
     "image": "",
     "@binario": {
@@ -771,11 +771,11 @@
   },
   {
     "type": "ruta",
-    "key": 55,
+    "key": 141,
     "pregunta": "¿Gritas? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 56,
-      "negativo": 56
+      "positivo": 142,
+      "negativo": 142
     },
     "image": "",
     "@binario": {
@@ -785,11 +785,11 @@
   },
   {
     "type": "ruta",
-    "key": 56,
+    "key": 142,
     "pregunta": "¿Le cuentas a alguien que tienes miedo? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 57,
-      "negativo": 57
+      "positivo": 143,
+      "negativo": 143
     },
     "image": "",
     "@binario": {
@@ -799,11 +799,11 @@
   },
   {
     "type": "ruta",
-    "key": 57,
+    "key": 143,
     "pregunta": "Como has dicho que tienes dolor cuando estás en un procedimiento médico, quisiera saber qué haces cuando te sientes feliz teniendo dolor. ¿juegas? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 58,
-      "negativo": 58
+      "positivo": 144,
+      "negativo": 144
     },
     "image": "",
     "@binario": {
@@ -813,11 +813,11 @@
   },
   {
     "type": "ruta",
-    "key": 58,
+    "key": 144,
     "pregunta": "¿lees? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 59,
-      "negativo": 59
+      "positivo": 145,
+      "negativo": 145
     },
     "image": "",
     "@binario": {
@@ -827,11 +827,11 @@
   },
   {
     "type": "ruta",
-    "key": 59,
+    "key": 145,
     "pregunta": "¿ Ves televisión? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 60,
-      "negativo": 60
+      "positivo": 146,
+      "negativo": 146
     },
     "image": "",
     "@binario": {
@@ -841,11 +841,11 @@
   },
   {
     "type": "ruta",
-    "key": 60,
+    "key": 146,
     "pregunta": "¿Haces alguna cosa que te guste mucho aunque tengas dolor? Por ejemplo: jugar, leer, ver televisión.",
     "respuesta": {
-      "positivo": 61,
-      "negativo": 61
+      "positivo": 147,
+      "negativo": 147
     },
     "image": "",
     "@binario": {
@@ -855,11 +855,11 @@
   },
   {
     "type": "ruta",
-    "key": 61,
+    "key": 147,
     "pregunta": "Es posible que hayas aprendido a hacer algo que te ayude a quitar el dolor. Si tú sabes hacer algo que te ayude a quitar el dolor, por favor cuéntame qué haces",
     "respuesta": {
-      "positivo": 62,
-      "negativo": 62
+      "positivo": 148,
+      "negativo": 148
     },
     "image": "",
     "@binario": {
@@ -869,11 +869,11 @@
   },
   {
     "type": "ruta",
-    "key": 62,
+    "key": 148,
     "pregunta": "Ya casi acabamos esta primera parte. Sé que te he preguntado muchas cosas, pero recuerda que todo esto nos ayuda a conocer mejor el dolor que sientes. Me gustaria saber algunas cosas que piensas sobre el dolor que sientes cuando estas en un procedimiento médico. ¿Piensas que el dolor que sientes es porque te van a hacer algo malo? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 63,
-      "negativo": 63
+      "positivo": 149,
+      "negativo": 149
     },
     "image": "",
     "@binario": {
@@ -883,11 +883,11 @@
   },
   {
     "type": "ruta",
-    "key": 63,
+    "key": 149,
     "pregunta": "¿Piensas que el dolor que sientes es porque algo está saliendo mal en el procedimiento? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 64,
-      "negativo": 64
+      "positivo": 150,
+      "negativo": 150
     },
     "image": "",
     "@binario": {
@@ -897,11 +897,11 @@
   },
   {
     "type": "ruta",
-    "key": 64,
+    "key": 150,
     "pregunta": "Si el dolor fuera un personaje de una película, ¿quién crees que sería? Por favor responde Un héroe o Un Villano",
     "respuesta": {
-      "positivo": 65,
-      "negativo": 65
+      "positivo": 151,
+      "negativo": 151
     },
     "image": "",
     "@binario": {
@@ -911,11 +911,11 @@
   },
   {
     "type": "ruta",
-    "key": 65,
+    "key": 151,
     "pregunta": "¿Piensas que tus papás te ayudan a quitar el dolor? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 66,
-      "negativo": 66
+      "positivo": 152,
+      "negativo": 152
     },
     "image": "",
     "@binario": {
@@ -925,11 +925,11 @@
   },
   {
     "type": "ruta",
-    "key": 66,
+    "key": 152,
     "pregunta": "¿Piensas que todo sería mejor si el dolor no estuviera? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 67,
-      "negativo": 67
+      "positivo": 153,
+      "negativo": 153
     },
     "image": "",
     "@binario": {
@@ -939,11 +939,11 @@
   },
   {
     "type": "ruta",
-    "key": 67,
+    "key": 153,
     "pregunta": "¿Piensas que los médicos y enfermeros te ayudan a quitar el dolor? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 68,
-      "negativo": 68
+      "positivo": 154,
+      "negativo": 154
     },
     "image": "",
     "@binario": {
@@ -953,11 +953,11 @@
   },
   {
     "type": "ruta",
-    "key": 68,
+    "key": 154,
     "pregunta": "¿Piensas que el dolor siempre va a estar ahí? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 69,
-      "negativo": 69
+      "positivo": 155,
+      "negativo": 155
     },
     "image": "",
     "@binario": {
@@ -967,11 +967,11 @@
   },
   {
     "type": "ruta",
-    "key": 69,
+    "key": 155,
     "pregunta": "¿Piensas que el día nunca va a acabar cuando sientes dolor? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 70,
-      "negativo": 70
+      "positivo": 156,
+      "negativo": 156
     },
     "image": "",
     "@binario": {
@@ -981,11 +981,11 @@
   },
   {
     "type": "ruta",
-    "key": 70,
+    "key": 156,
     "pregunta": "¿Qué otras cosas piensas cuando tienes dolor en un procedimiento médico?",
     "respuesta": {
-      "positivo": 71,
-      "negativo": 71
+      "positivo": 157,
+      "negativo": 157
     },
     "image": "",
     "@binario": {
@@ -995,11 +995,11 @@
   },
   {
     "type": "ruta",
-    "key": 71,
+    "key": 157,
     "pregunta": "¿Crees que el dolor que sientes es un castigo por algo malo que hiciste? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 72,
-      "negativo": 72
+      "positivo": 158,
+      "negativo": 158
     },
     "image": "",
     "@binario": {
@@ -1009,11 +1009,11 @@
   },
   {
     "type": "ruta",
-    "key": 72,
+    "key": 158,
     "pregunta": "¿Crees que jugar te ayuda a sentir menos dolor? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 73,
-      "negativo": 73
+      "positivo": 159,
+      "negativo": 159
     },
     "image": "",
     "@binario": {
@@ -1023,11 +1023,11 @@
   },
   {
     "type": "ruta",
-    "key": 73,
+    "key": 159,
     "pregunta": "¿Crees que aguantar el dolor te hace más fuerte? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 74,
-      "negativo": 74
+      "positivo": 160,
+      "negativo": 160
     },
     "image": "",
     "@binario": {
@@ -1037,11 +1037,11 @@
   },
   {
     "type": "ruta",
-    "key": 74,
+    "key": 160,
     "pregunta": "¿Crees que tienes dolor porque hay algo que está mal en ti? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 75,
-      "negativo": 75
+      "positivo": 161,
+      "negativo": 161
     },
     "image": "",
     "@binario": {
@@ -1051,11 +1051,11 @@
   },
   {
     "type": "ruta",
-    "key": 75,
+    "key": 161,
     "pregunta": "¿Crees que escuchar música te ayuda a sentir menos dolor? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 76,
-      "negativo": 76
+      "positivo": 162,
+      "negativo": 162
     },
     "image": "",
     "@binario": {
@@ -1065,11 +1065,11 @@
   },
   {
     "type": "ruta",
-    "key": 76,
+    "key": 162,
     "pregunta": "¿Crees que hay alguna palabra o frase que te ayude a sentir menos dolor? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 77,
-      "negativo": 77
+      "positivo": 163,
+      "negativo": 163
     },
     "image": "",
     "@binario": {
@@ -1079,11 +1079,11 @@
   },
   {
     "type": "ruta",
-    "key": 77,
+    "key": 163,
     "pregunta": "¿Crees que hay algún objeto o juguete que te ayude a sentir menos dolor? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 78,
-      "negativo": 78
+      "positivo": 164,
+      "negativo": 164
     },
     "image": "",
     "@binario": {
@@ -1093,11 +1093,11 @@
   },
   {
     "type": "ruta",
-    "key": 78,
+    "key": 164,
     "pregunta": "¿Crees que los demás no te entienden cuando sientes dolor? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 79,
-      "negativo": 79
+      "positivo": 165,
+      "negativo": 165
     },
     "image": "",
     "@binario": {
@@ -1107,11 +1107,11 @@
   },
   {
     "type": "ruta",
-    "key": 79,
+    "key": 165,
     "pregunta": "¿Crees que el dolor significa que tu cuerpo se está recuperando? Por favor responde Si o No",
     "respuesta": {
-      "positivo": 80,
-      "negativo": 80
+      "positivo": 166,
+      "negativo": 166
     },
     "image": "",
     "@binario": {
@@ -1121,7 +1121,7 @@
   },
   {
     "type": "respuesta",
-    "key": 86,
+    "key": 166,
     "pregunta": "",
     "respuesta": "@Gracias",
     "image": "",

@@ -65,12 +65,16 @@ class ModuloController {
           for (var i = 0; i < this.mensaje_bk.page.preguntas.length; i++) {
             if (this.mensaje_bk.page.preguntas[i].key == keyBuscar) {
               if (this.mensaje_bk.page.preguntas[i].type == "ruta") {
+                var tipo = "bool";
+                if (this.mensaje_bk.page.preguntas[i].image != "") {
+                  tipo = "image";
+                }
                 Pregunta pre = Pregunta(
                     key: this.mensaje_bk.page.preguntas[i].key,
-                    type: "bool",
+                    type: tipo,
                     pregunta: this.mensaje_bk.page.preguntas[i].pregunta,
                     respuesta: "",
-                    image: "",
+                    image: this.mensaje_bk.page.preguntas[i].image,
                     izq: Pregunta(
                         type: "pregunta",
                         respuesta: this
@@ -98,7 +102,7 @@ class ModuloController {
                     type: "respuesta",
                     pregunta: "Perfecto " + this.mensaje_bk.page.nombre,
                     respuesta: this.mensaje_bk.page.preguntas[i].pregunta,
-                    image: "",
+                    image: this.mensaje_bk.page.preguntas[i].image,
                     izq: Pregunta(
                         type: "respuesta",
                         respuesta: this
@@ -181,12 +185,16 @@ class ModuloController {
           for (var i = 0; i < this.mensaje_bk.page.preguntas.length; i++) {
             if (this.mensaje_bk.page.preguntas[i].key == keyBuscar) {
               if (this.mensaje_bk.page.preguntas[i].type == "ruta") {
+                var tipo = "bool";
+                if (this.mensaje_bk.page.preguntas[i].image != "") {
+                  tipo = "image";
+                }
                 Pregunta pre = Pregunta(
                     key: this.mensaje_bk.page.preguntas[i].key,
-                    type: "bool",
+                    type: tipo,
                     pregunta: this.mensaje_bk.page.preguntas[i].pregunta,
                     respuesta: "",
-                    image: "",
+                    image: this.mensaje_bk.page.preguntas[i].image,
                     izq: Pregunta(
                         type: "pregunta",
                         respuesta: this
