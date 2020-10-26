@@ -48,7 +48,13 @@ class ModuloController {
   void GetResponseBool(String mesaje) {
     Random random = new Random();
     var serial = this.config.getValue("serial");
-    if (this.mensaje_ini.binario.der.indexOf(mesaje) >= 0) {
+    if (this
+            .mensaje_ini
+            .binario
+            .der
+            .toLowerCase()
+            .indexOf(mesaje.toLowerCase()) >=
+        0) {
       var rest = new RespuestasModel(
           serial,
           true,
@@ -168,7 +174,13 @@ class ModuloController {
           this.mensaje_ini = this.mensaje_ini.der;
       }
       this.error = "";
-    } else if (this.mensaje_ini.binario.izq.indexOf(mesaje) >= 0) {
+    } else if (this
+            .mensaje_ini
+            .binario
+            .izq
+            .toLowerCase()
+            .indexOf(mesaje.toLowerCase()) >=
+        0) {
       var rest = new RespuestasModel(
           serial,
           true,
@@ -301,6 +313,7 @@ class ModuloController {
           mesaje,
           contador,
           jsonEncode(this.mensaje_ini.binario.toJson()));
+      rest.tabla = "RespuestasFalla";
       var bd = BD.add(rest);
     }
     contador += 1;

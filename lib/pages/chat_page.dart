@@ -140,7 +140,7 @@ class _ChatPageState extends State<ChatPage> with TickerProviderStateMixin {
         children: <Widget>[
           GifImage(
             width: MediaQuery.of(context).copyWith().size.width,
-            height: 250,
+            height: 200,
             controller: controller,
             image: AssetImage("assets/Kenito.gif"),
           ),
@@ -257,10 +257,11 @@ class _ChatPageState extends State<ChatPage> with TickerProviderStateMixin {
 
   void onRecognitionComplete(String text) {
     print('_MyAppState.onRecognitionComplete... $text');
-    tamano = 300;
+    tamano = 350;
     setState(() => _isListening = false);
     debugPrint("texto completado en escucha : $text");
     if (status && text != "") {
+      this.image = "";
       status = false;
       if (_newVoiceText
                   .indexOf(this.ArbolResponce.mensaje_bk.page.bienvenida) >=
@@ -293,6 +294,7 @@ class _ChatPageState extends State<ChatPage> with TickerProviderStateMixin {
           default:
             _newVoiceText = this.ArbolResponce.mensaje_ini.pregunta;
         }
+        this.image = this.ArbolResponce.mensaje_ini.image;
         _speak();
       } else {
         switch (this.ArbolResponce.mensaje_ini.type) {

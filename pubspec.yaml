@@ -45,12 +45,15 @@ flutter:
   uses-material-design: true
   assets:
     - assets/flutter-icon.png
-    - assets/pngocean.com.png
     - assets/ajax-loader.gif
     - assets/credentials.json
     - assets/Config.json
     - assets/data.json
     - assets/cuerpo/
+    - assets/cuerpo/cuerpo/
+    - assets/cuerpo/emociones/
+    - assets/cuerpo/nivel_dolor/
+    - assets/cuerpo/tipo_dolor/
     - assets/Kenito.gif
   # fonts:
   #   - family: Schyler
