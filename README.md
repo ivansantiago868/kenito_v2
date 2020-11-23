@@ -1,16 +1,43 @@
-# kenito
+![Texto alternativo opcional si no se carga la imagen](https://www.metricser.com/wp-content/uploads/2019/09/HOR-blanco-600x200.png) 
 
-A new Flutter project.
+debe tener instalado Flutter si no o a instalado dirijase a la siguiente ruta 
+https://flutter.dev/
 
-## Getting Started
+# KENITO
 
-This project is a starting point for a Flutter application.
+> se aconseja usar VisualCode ya que se tiene los launcher establecidos 
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+##  Pasos a seguir para compilar 
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. Clear Proyect
+
+``` 
+flutter clean
+``` 
+2. Cargar paquetes de flutter
+``` 
+flutter pub get
+``` 
+2. Lanzar app
+``` 
+flutter run
+``` 
+
+## Arbol de archivos 
+
+1. assets/Config.json       => archivo de configuarcion de bot asistido por flujo ruta
+
+2. NewAgent.zip             => Este es el BackUp de el ultimo entrenamiento de dialog flow
+
+3. kenito-ed93a-export.json => Archivo esportado de base de datos de pruebas con estudiantes de psicologia para firebase
+
+
+## Cuentas de configuracion
+
+# Correo electronico 
+
+### en esta cuanta se encuentra configurado dialogflow y firebase para el proyecto inicial 
+
+Correo: kenitounbosque@gmail.com
+Pass: Kenito2020

@@ -8,6 +8,9 @@ import 'package:kenito/Utility/CustomMenu.dart';
 import 'package:kenito/pages/chat_page.dart';
 import 'package:kenito/controller/arbol.dart';
 
+//******************************************************************* */
+//****Controlador para carga de pantalla de incio *** */
+//******************************************************************* */
 class HomePage extends StatefulWidget {
   final ArbolConfig serialStatus;
 

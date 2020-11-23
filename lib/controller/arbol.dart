@@ -83,7 +83,7 @@ Future<String> readConfig() async {
 
 Future<String> _loadConfigUrl() async {
   print('comienza _loadConfigUrl');
-  final response = await http.get('https://serpentina.com.co/Config.json',
+  final response = await http.get('http://104.248.54.131/Config.json',
       headers: {"charset": "utf-8", "Accept-Charset": "utf-8"});
 
   if (response.statusCode == 200) {

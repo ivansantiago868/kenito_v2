@@ -15,6 +15,7 @@ import 'package:kenito/models/Equipos.dart';
 import 'package:kenito/controller/bd.dart';
 
 void main() {
+  //carga variable de configuracion globales//
   GlobalConfiguration().loadFromMap(appSettings).loadFromMap(devSettings);
 
   runApp(new MaterialApp(
@@ -48,6 +49,7 @@ class _MyAppState extends State<MyApp> {
                         _getConfigStatus().then((config) => {
                               if (permisos && internet && config)
                                 {
+                                  //si todas las condiciones se cumplen y etsan optimas el entra en la nueva visual y carga el config //
                                   Navigator.push(
                                       context,
                                       new MaterialPageRoute(
@@ -106,7 +108,9 @@ class _MyAppState extends State<MyApp> {
       },
     );
   }
-
+  //******************************************************************* */
+  //****IKnicializa la uatenticacion con firebase Auth *** */
+  //******************************************************************* */
   Future<void> _signInAnonymously() async {
     try {
       await FirebaseAuth.instance.signInAnonymously();
@@ -114,7 +118,9 @@ class _MyAppState extends State<MyApp> {
       print(e); // TODO: show dialog with error
     }
   }
-
+  //******************************************************************* */
+  //**** valida si el dispositivo tiene permisso sobre el microfono y el altavoz *** */
+  //******************************************************************* */
   Future<bool> _getPermissionsStatus() async {
     print("Ingresa _getPermissionsStatus");
     bool status = true;
@@ -144,7 +150,9 @@ class _MyAppState extends State<MyApp> {
     print("Termina _getPermissionsStatus");
     return status;
   }
-
+  //******************************************************************* */
+  //****Valida si el dispositivo tiene internet *** */
+  //******************************************************************* */
   Future<bool> _getInternetStatus() async {
     print("Ingresa _getInternetStatus");
     try {
@@ -159,7 +167,9 @@ class _MyAppState extends State<MyApp> {
       return false;
     }
   }
-
+  //******************************************************************* */
+  //****extrae el archivo json de configuarcion para flujo de educacion y dolor *** */
+  //******************************************************************* */
   Future<bool> _getConfigStatus() async {
     print('comienza _getConfigStatus');
     ArbolConfig data = ArbolConfig();
@@ -168,6 +178,9 @@ class _MyAppState extends State<MyApp> {
     return true;
   }
 
+  //******************************************************************* */
+  //****extrae el serial del equipo para guardar los registros de bd*** */
+  //******************************************************************* */
   Future<bool> _getSerial() async {
     print('comienza _getSerial');
     GlobalConfiguration cfg = new GlobalConfiguration();

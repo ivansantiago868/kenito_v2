@@ -14,11 +14,15 @@ class LoadPage extends StatefulWidget {
   _LoadPageState createState() => new _LoadPageState();
 }
 
+//******************************************************************* */
+//****Controlador para carga de pantalla de incio *** */
+//******************************************************************* */
 class _LoadPageState extends State<LoadPage> {
   double _progress = 0;
   @override
   void initState() {
     ArbolConfig data = new ArbolConfig();
+    //el modulo solo se carga como visual cuando traiga el config y se redirecciona cuando termine de descargar el Config.json  //
     data.loadConfig().then((estatus) => {
           if (estatus)
             {

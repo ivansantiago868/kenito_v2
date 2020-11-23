@@ -41,6 +41,9 @@ class ChatPage extends StatefulWidget {
   _ChatPageState createState() => new _ChatPageState(this.serialStatus);
 }
 
+//******************************************************************* */
+//****Controlador para charla del bot *** */
+//******************************************************************* */
 class _ChatPageState extends State<ChatPage> with TickerProviderStateMixin {
   ArbolConfig serialStatus;
   bool _speechRecognitionAvailable = false;
@@ -134,6 +137,9 @@ class _ChatPageState extends State<ChatPage> with TickerProviderStateMixin {
         ));
   }
 
+//******************************************************************* */
+//****Identifica si en la visual debe pintar una imagen o solo la imagen de kenito *** */
+//******************************************************************* */
   SetImagenDatos() {
     if (image != "" && image != null) {
       return new Column(
@@ -169,16 +175,6 @@ class _ChatPageState extends State<ChatPage> with TickerProviderStateMixin {
           ),
           Container(
               width: MediaQuery.of(context).copyWith().size.width, height: 50),
-          // new Container(
-          //     padding: const EdgeInsets.all(20),
-          //     width: MediaQuery.of(context).copyWith().size.width,
-          //     height: tamano,
-          //     decoration: BoxDecoration(
-          //       image: DecorationImage(
-          //           // image: AssetImage("assets/cuerpo/carasdolor.jpg"),
-          //           image: AssetImage("assets/cuerpo/cabeza.jpg"),
-          //           fit: BoxFit.cover),
-          //     )),
           Container(
               width: MediaQuery.of(context).copyWith().size.width, height: 10)
         ],
@@ -192,17 +188,6 @@ class _ChatPageState extends State<ChatPage> with TickerProviderStateMixin {
   void activateSpeechRecognizer() {
     ////////////////speech_recognition//////////////////////////////
     print('SpeechPage.activateSpeechRecognizer... ');
-    // _speech = new SpeechRecognition();
-    // _speech.setAvailabilityHandler(onSpeechAvailability);
-    // _speech.setCurrentLocaleHandler(onCurrentLocale);
-    // _speech.setRecognitionStartedHandler(onRecognitionStarted);
-    // _speech.setRecognitionResultHandler(onRecognitionResult);
-    // _speech.setRecognitionCompleteHandler(onRecognitionComplete);
-    // _speech.setErrorHandler(errorHandler);
-    // _speech
-    //     .activate()
-    //     .then((res) => setState(() => _speechRecognitionAvailable = res));
-    ////////////////flutter_speech//////////////////////////////
     print('SpeechPage.activateSpeechRecognizer... ');
     _speech = new SpeechRecognition();
     _speech.setAvailabilityHandler(onSpeechAvailability);
