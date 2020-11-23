@@ -7,6 +7,9 @@ import 'package:kenito/controller/bd.dart';
 import 'package:kenito/models/Config.dart';
 import 'package:kenito/models/Respuestas.dart';
 
+//******************************************************************* */
+//****Clase que controla el flujo de la converzacion sea por DialogFlow o Por el modulo nativo *** */
+//******************************************************************* */
 class ModuloController {
   Pregunta mensaje_ini;
   ArbolConfig mensaje_bk;

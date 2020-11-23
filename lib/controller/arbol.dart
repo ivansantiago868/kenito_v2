@@ -8,6 +8,9 @@ import 'dart:convert';
 
 import 'package:path_provider/path_provider.dart';
 
+//******************************************************************* */
+//****Clase para el parceop y descarga de la configuracion Config.json *** */
+//******************************************************************* */
 class ArbolConfig {
   Config page;
   bool load = false;
